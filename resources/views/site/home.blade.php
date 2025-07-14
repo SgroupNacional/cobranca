@@ -1030,7 +1030,7 @@
 												</div>
 												<!--end::Features-->
 												<!--begin::Select-->
-												<a href="#" class="btn btn-primary">Select</a>
+												<a href="#" class="btn btn-primary">Escolher Plano</a>
 												<!--end::Select-->
 											</div>
 											<!--end::Option-->
@@ -1094,7 +1094,7 @@
 												</div>
 												<!--end::Features-->
 												<!--begin::Select-->
-												<a href="#" class="btn btn-color-primary btn-active-light-primary btn-light">Select</a>
+												<a href="#" class="btn btn-color-primary btn-active-light-primary btn-light">Escolher Plano</a>
 												<!--end::Select-->
 											</div>
 											<!--end::Option-->
@@ -1133,32 +1133,32 @@
 													<!--end::Item-->
 													<!--begin::Item-->
 													<div class="d-flex flex-stack mb-5">
-														<span class="fw-semibold fs-6 text-gray-800 text-start pe-3">Up to 30 Project Integrations</span>
+														<span class="fw-semibold fs-6 text-gray-800 text-start pe-3">Integrações ilimitadas</span>
 														<i class="ki-outline ki-check-circle fs-1 text-success"></i>
 													</div>
 													<!--end::Item-->
 													<!--begin::Item-->
 													<div class="d-flex flex-stack mb-5">
-														<span class="fw-semibold fs-6 text-gray-800 text-start pe-3">Keen Analytics Platform</span>
+														<span class="fw-semibold fs-6 text-gray-800 text-start pe-3">Plataforma de análises avançadas</span>
 														<i class="ki-outline ki-check-circle fs-1 text-success"></i>
 													</div>
 													<!--end::Item-->
 													<!--begin::Item-->
 													<div class="d-flex flex-stack mb-5">
-														<span class="fw-semibold fs-6 text-gray-800 text-start pe-3">Targets Timelines & Files</span>
+														<span class="fw-semibold fs-6 text-gray-800 text-start pe-3">Gestão de prazos e arquivos</span>
 														<i class="ki-outline ki-check-circle fs-1 text-success"></i>
 													</div>
 													<!--end::Item-->
 													<!--begin::Item-->
 													<div class="d-flex flex-stack">
-														<span class="fw-semibold fs-6 text-gray-800 text-start pe-3">Unlimited Projects</span>
+														<span class="fw-semibold fs-6 text-gray-800 text-start pe-3">Projetos ilimitados</span>
 														<i class="ki-outline ki-check-circle fs-1 text-success"></i>
 													</div>
 													<!--end::Item-->
 												</div>
 												<!--end::Features-->
 												<!--begin::Select-->
-												<a href="#" class="btn btn-primary">Select</a>
+												<a href="#" class="btn btn-primary">Escolher Plano</a>
 												<!--end::Select-->
 											</div>
 											<!--end::Option-->
@@ -1191,11 +1191,11 @@
 					<!--begin::Heading-->
 					<div class="text-center mb-17">
 						<!--begin::Title-->
-						<h3 class="fs-2hx text-gray-900 mb-5" id="clients" data-kt-scroll-offset="{default: 125, lg: 150}">What Our Clients Say</h3>
+						<h3 class="fs-2hx text-gray-900 mb-5" id="clients" data-kt-scroll-offset="{default: 125, lg: 150}">O que dizem nossos clientes?</h3>
 						<!--end::Title-->
 						<!--begin::Description-->
-						<div class="fs-5 text-muted fw-bold">Save thousands to millions of bucks by using single tool 
-						<br />for different amazing and great useful admin</div>
+						<div class="fs-5 text-muted fw-bold">Quem utiliza nossos serviços destaca a qualidade
+						<br />praticidade e confiança que oferecemos. </div>
 						<!--end::Description-->
 					</div>
 					<!--end::Heading-->
@@ -1227,11 +1227,10 @@
 									</div>
 									<!--end::Rating-->
 									<!--begin::Title-->
-									<div class="fs-2 fw-bold text-gray-900 mb-3">This is by far the cleanest template 
-									<br />and the most well structured</div>
+									<div class="fs-2 fw-bold text-gray-900 mb-3">Sistema rápido e fácil de usar</div>
 									<!--end::Title-->
 									<!--begin::Feedback-->
-									<div class="text-gray-500 fw-semibold fs-4">The most well thought out design theme I have ever used. The codes are up to tandard. The css styles are very clean. In fact the cleanest and the most up to standard I have ever seen.</div>
+									<div class="text-gray-500 fw-semibold fs-4">Sem dúvida, o melhor sistema que já usei. A estrutura é clara, o design é limpo e a navegação é muito intuitiva. Facilitou meu trabalho do dia a dia.</div>
 									<!--end::Feedback-->
 								</div>
 								<!--end::Wrapper-->
@@ -1244,8 +1243,8 @@
 									<!--end::Avatar-->
 									<!--begin::Name-->
 									<div class="flex-grow-1">
-										<a href="#" class="text-gray-900 fw-bold text-hover-primary fs-6">Paul Miles</a>
-										<span class="text-muted d-block fw-bold">Development Lead</span>
+										<a href="#" class="text-gray-900 fw-bold text-hover-primary fs-6">João Almeida</a>
+										<span class="text-muted d-block fw-bold">Desenvolvedor Full Stack</span>
 									</div>
 									<!--end::Name-->
 								</div>
@@ -1280,11 +1279,10 @@
 									</div>
 									<!--end::Rating-->
 									<!--begin::Title-->
-									<div class="fs-2 fw-bold text-gray-900 mb-3">This is by far the cleanest template 
-									<br />and the most well structured</div>
+									<div class="fs-2 fw-bold text-gray-900 mb-3">Ótimo suporte e confiabilidade</div>
 									<!--end::Title-->
 									<!--begin::Feedback-->
-									<div class="text-gray-500 fw-semibold fs-4">The most well thought out design theme I have ever used. The codes are up to tandard. The css styles are very clean. In fact the cleanest and the most up to standard I have ever seen.</div>
+									<div class="text-gray-500 fw-semibold fs-4">Plataforma leve, rápida e confiável. A equipe está de parabéns. Tudo funciona perfeitamente e o suporte é excelente.</div>
 									<!--end::Feedback-->
 								</div>
 								<!--end::Wrapper-->
@@ -1297,8 +1295,8 @@
 									<!--end::Avatar-->
 									<!--begin::Name-->
 									<div class="flex-grow-1">
-										<a href="#" class="text-gray-900 fw-bold text-hover-primary fs-6">Janya Clebert</a>
-										<span class="text-muted d-block fw-bold">Development Lead</span>
+										<a href="#" class="text-gray-900 fw-bold text-hover-primary fs-6">Carla Mendes</a>
+										<span class="text-muted d-block fw-bold">Analista de Projetos</span>
 									</div>
 									<!--end::Name-->
 								</div>
@@ -1333,11 +1331,10 @@
 									</div>
 									<!--end::Rating-->
 									<!--begin::Title-->
-									<div class="fs-2 fw-bold text-gray-900 mb-3">This is by far the cleanest template 
-									<br />and the most well structured</div>
+									<div class="fs-2 fw-bold text-gray-900 mb-3">Plataforma intuitiva e moderna</div>
 									<!--end::Title-->
 									<!--begin::Feedback-->
-									<div class="text-gray-500 fw-semibold fs-4">The most well thought out design theme I have ever used. The codes are up to tandard. The css styles are very clean. In fact the cleanest and the most up to standard I have ever seen.</div>
+									<div class="text-gray-500 fw-semibold fs-4">Melhor experiência com plataforma digital. Já testei vários serviços, mas esse foi o único que realmente superou minhas expectativas.</div>
 									<!--end::Feedback-->
 								</div>
 								<!--end::Wrapper-->
@@ -1350,8 +1347,8 @@
 									<!--end::Avatar-->
 									<!--begin::Name-->
 									<div class="flex-grow-1">
-										<a href="#" class="text-gray-900 fw-bold text-hover-primary fs-6">Steave Brown</a>
-										<span class="text-muted d-block fw-bold">Development Lead</span>
+										<a href="#" class="text-gray-900 fw-bold text-hover-primary fs-6">Eduardo Lima</a>
+										<span class="text-muted d-block fw-bold">Gerente de TI</span>
 									</div>
 									<!--end::Name-->
 								</div>
@@ -1367,16 +1364,16 @@
 						<!--begin::Content-->
 						<div class="my-2 me-5">
 							<!--begin::Title-->
-							<div class="fs-1 fs-lg-2qx fw-bold text-white mb-2">Start With Metronic Today, 
-							<span class="fw-normal">Speed Up Development!</span></div>
+							<div class="fs-1 fs-lg-2qx fw-bold text-white mb-2">Comece agora com a automação de cobranças 
+							<span class="fw-normal">e ganhe tempo!</span></div>
 							<!--end::Title-->
 							<!--begin::Description-->
-							<div class="fs-6 fs-lg-5 text-white fw-semibold opacity-75">Join over 100,000 Professionals Community to Stay Ahead</div>
+							<div class="fs-6 fs-lg-5 text-white fw-semibold opacity-75">Junte-se aos mais de 10.000 clientes que já automatizam suas cobranças com eficiência.</div>
 							<!--end::Description-->
 						</div>
 						<!--end::Content-->
 						<!--begin::Link-->
-						<a href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?irgwc=1&clickid=Qb1XFm3dIxyIUCez3ZXf1X0mUks0kb3cC2sEUQ0&iradid=275988&irpid=1330466&iradtype=ONLINE_TRACKING_LINK&irmptype=mediapartner&mp_value1=&utm_campaign=af_impact_radius_1330466&utm_medium=affiliate&utm_source=impact_radius" class="btn btn-lg btn-outline border-2 btn-outline-white flex-shrink-0 my-2">Purchase on Themeforest</a>
+						<a href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?irgwc=1&clickid=Qb1XFm3dIxyIUCez3ZXf1X0mUks0kb3cC2sEUQ0&iradid=275988&irpid=1330466&iradtype=ONLINE_TRACKING_LINK&irmptype=mediapartner&mp_value1=&utm_campaign=af_impact_radius_1330466&utm_medium=affiliate&utm_source=impact_radius" class="btn btn-lg btn-outline border-2 btn-outline-white flex-shrink-0 my-2">Começar Agora</a>
 						<!--end::Link-->
 					</div>
 					<!--end::Highlight-->
