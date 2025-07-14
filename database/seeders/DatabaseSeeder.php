@@ -11,9 +11,9 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    public function run(): void
-    {
-        // User::factory(10)->create();
+    public function run(): void{
+        $this->call(RolesAndPermissionsSeeder::class);
+        $this->call(\Database\Seeders\SuperAdminSeeder::class);
 
         User::factory()->create([
             'name' => 'Test User',
