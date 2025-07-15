@@ -50,7 +50,7 @@
 									<!--end::Mobile menu toggle-->
 									<!--begin::Logo image-->
 									<a href="landing.html">
-										<img alt="Logo" src="assets/media/logos/landing.png" class="logo-default" width="200" height="100" />
+										<img alt="Logo" src="assets/media/logos/landing.png" class="logo-default" width="100" height="50" />
 									</a>
 									<!--end::Logo image-->
 								</div>
@@ -309,16 +309,6 @@
 							<!--end::Item-->
 						</div>
 						<!--end::Slider-->
-						<!--begin::Slider button-->
-						<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_prev1">
-							<i class="ki-outline ki-left fs-2x"></i>
-						</button>
-						<!--end::Slider button-->
-						<!--begin::Slider button-->
-						<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_next1">
-							<i class="ki-outline ki-right fs-2x"></i>
-						</button>
-						<!--end::Slider button-->
 					</div>
 					<!--end::Product slider-->
 				</div>
@@ -1041,20 +1031,20 @@
 									<div class="col-xl-4">
 										<div class="d-flex h-100 align-items-center">
 											<!--begin::Option-->
-											<div class="w-100 d-flex flex-column flex-center rounded-3 bg-primary py-20 px-10">
+											<div class="w-100 d-flex flex-column flex-center rounded-3 bg-warning py-20 px-10 text-black">
 												<!--begin::Heading-->
 												<div class="mb-7 text-center">
 													<!--begin::Title-->
-													<h1 class="text-white mb-5 fw-boldest">Profissional</h1>
+													<h1 class=" mb-5 fw-boldest">Profissional</h1>
 													<!--end::Title-->
 													<!--begin::Description-->
-													<div class="text-white opacity-75 fw-semibold mb-5">Para empresas em expansão</div>
+													<div class=" opacity-75 fw-semibold mb-5">Para empresas em expansão</div>
 													<!--end::Description-->
 													<!--begin::Price-->
 													<div class="text-center">
-														<span class="mb-2 text-white">R$</span>
-														<span class="fs-3x fw-bold text-white" data-kt-plan-price-month="129,90" data-kt-plan-price-annual="849,00">129,90</span>
-														<span class="fs-7 fw-semibold text-white opacity-75" data-kt-plan-price-month="/ Mês" data-kt-plan-price-annual="/ Ano">/ Mês</span>
+														<span class="mb-2 ">R$</span>
+														<span class="fs-3x fw-bold text-primary" data-kt-plan-price-month="129,90" data-kt-plan-price-annual="849,00">129,90</span>
+														<span class="fs-7 fw-semibold  opacity-75" data-kt-plan-price-month="/ Mês" data-kt-plan-price-annual="/ Ano">/ Mês</span>
 													</div>
 													<!--end::Price-->
 												</div>
@@ -1063,38 +1053,38 @@
 												<div class="w-100 mb-10">
 													<!--begin::Item-->
 													<div class="d-flex flex-stack mb-5">
-														<span class="fw-semibold fs-6 text-white opacity-75 text-start pe-3">Até 50 usuários ativos</span>
-														<i class="ki-outline ki-check-circle fs-1 text-white"></i>
+														<span class="fw-semibold fs-6  opacity-75 text-start pe-3">Até 50 usuários ativos</span>
+														<i class="ki-outline ki-check-circle fs-1 "></i>
 													</div>
 													<!--end::Item-->
 													<!--begin::Item-->
 													<div class="d-flex flex-stack mb-5">
-														<span class="fw-semibold fs-6 text-white opacity-75 text-start pe-3">Até 100 integrações de projeto</span>
-														<i class="ki-outline ki-check-circle fs-1 text-white"></i>
+														<span class="fw-semibold fs-6  opacity-75 text-start pe-3">Até 100 integrações de projeto</span>
+														<i class="ki-outline ki-check-circle fs-1 "></i>
 													</div>
 													<!--end::Item-->
 													<!--begin::Item-->
 													<div class="d-flex flex-stack mb-5">
-														<span class="fw-semibold fs-6 text-white opacity-75 text-start pe-3">Plataforma de análises avançadas</span>
-														<i class="ki-outline ki-check-circle fs-1 text-white"></i>
+														<span class="fw-semibold fs-6  opacity-75 text-start pe-3">Plataforma de análises avançadas</span>
+														<i class="ki-outline ki-check-circle fs-1 "></i>
 													</div>
 													<!--end::Item-->
 													<!--begin::Item-->
 													<div class="d-flex flex-stack mb-5">
-														<span class="fw-semibold fs-6 text-white opacity-75 text-start pe-3">Gestão de prazos e arquivos</span>
-														<i class="ki-outline ki-check-circle fs-1 text-white"></i>
+														<span class="fw-semibold fs-6  opacity-75 text-start pe-3">Gestão de prazos e arquivos</span>
+														<i class="ki-outline ki-check-circle fs-1 "></i>
 													</div>
 													<!--end::Item-->
 													<!--begin::Item-->
 													<div class="d-flex flex-stack">
-														<span class="fw-semibold fs-6 text-white opacity-75">Projetos ilimitados</span>
-														<i class="ki-outline ki-cross-circle fs-1 text-white"></i>
+														<span class="fw-semibold fs-6  opacity-75">Projetos ilimitados</span>
+														<i class="ki-outline ki-cross-circle fs-1 "></i>
 													</div>
 													<!--end::Item-->
 												</div>
 												<!--end::Features-->
 												<!--begin::Select-->
-												<a href="#" class="btn btn-color-primary btn-active-light-primary btn-light">Escolher Plano</a>
+												<a href="#" class="btn btn-light">Escolher Plano</a>
 												<!--end::Select-->
 											</div>
 											<!--end::Option-->
@@ -1505,11 +1495,6 @@
 						<div class="d-flex flex-column flex-md-row flex-stack py-7 py-lg-10">
 							<!--begin::Copyright-->
 							<div class="d-flex align-items-center order-2 order-md-1">
-								<!--begin::Logo-->
-								<a href="landing.html">
-									<img alt="Logo" src="assets/media/logos/landing.png" class="h-15px h-md-20px" />
-								</a>
-								<!--end::Logo image-->
 								<!--begin::Logo image-->
 								<span class="mx-5 fs-6 fw-semibold text-gray-600 pt-1" href="https://keenthemes.com">&copy; 2025 Shield</span>
 								<!--end::Logo image-->
