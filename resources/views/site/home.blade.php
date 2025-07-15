@@ -989,8 +989,8 @@
 													<!--begin::Price-->
 													<div class="text-center">
 														<span class="mb-2 text-primary">R$</span>
-														<span class="fs-3x fw-bold text-primary" data-kt-plan-price-month="99" data-kt-plan-price-annual="999">49,90</span>
-														<span class="fs-7 fw-semibold opacity-50" data-kt-plan-price-month="/ Mon" data-kt-plan-price-annual="/ Ann">/ Mês</span>
+														<span class="fs-3x fw-bold text-primary" data-kt-plan-price-month="49,90" data-kt-plan-price-annual="399,00">49,90</span>
+														<span class="fs-7 fw-semibold opacity-50" data-kt-plan-price-month="/ Mês" data-kt-plan-price-annual="/ Ano">/ Mês</span>
 													</div>
 													<!--end::Price-->
 												</div>
@@ -1053,8 +1053,8 @@
 													<!--begin::Price-->
 													<div class="text-center">
 														<span class="mb-2 text-white">R$</span>
-														<span class="fs-3x fw-bold text-white" data-kt-plan-price-month="199" data-kt-plan-price-annual="1999">129,90</span>
-														<span class="fs-7 fw-semibold text-white opacity-75" data-kt-plan-price-month="/ Mon" data-kt-plan-price-annual="/ Ann">/ Mês</span>
+														<span class="fs-3x fw-bold text-white" data-kt-plan-price-month="129,90" data-kt-plan-price-annual="849,00">129,90</span>
+														<span class="fs-7 fw-semibold text-white opacity-75" data-kt-plan-price-month="/ Mês" data-kt-plan-price-annual="/ Ano">/ Mês</span>
 													</div>
 													<!--end::Price-->
 												</div>
@@ -1117,8 +1117,8 @@
 													<!--begin::Price-->
 													<div class="text-center">
 														<span class="mb-2 text-primary">R$</span>
-														<span class="fs-3x fw-bold text-primary" data-kt-plan-price-month="999" data-kt-plan-price-annual="9999">299,90</span>
-														<span class="fs-7 fw-semibold opacity-50" data-kt-plan-price-month="/ Mon" data-kt-plan-price-annual="/ Ann">/ Mês</span>
+														<span class="fs-3x fw-bold text-primary" data-kt-plan-price-month="299,90" data-kt-plan-price-annual="1.499,00">299,90</span>
+														<span class="fs-7 fw-semibold opacity-50" data-kt-plan-price-month="/ Mês" data-kt-plan-price-annual="/ Ano">/ Mês</span>
 													</div>
 													<!--end::Price-->
 												</div>
