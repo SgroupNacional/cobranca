@@ -1002,19 +1002,19 @@
 													<!--begin::Item-->
 													<div class="d-flex flex-stack mb-5">
 														<span class="fw-semibold fs-6 text-gray-800">Plataforma de análises avançadas</span>
-														<i class="ki-outline ki-cross-circle fs-1"></i>
+														<i class="ki-outline ki-cross-circle fs-1 text-danger"></i>
 													</div>
 													<!--end::Item-->
 													<!--begin::Item-->
 													<div class="d-flex flex-stack mb-5">
 														<span class="fw-semibold fs-6 text-gray-800">Gestão de prazos e arquivos</span>
-														<i class="ki-outline ki-cross-circle fs-1"></i>
+														<i class="ki-outline ki-cross-circle fs-1 text-danger"></i>
 													</div>
 													<!--end::Item-->
 													<!--begin::Item-->
 													<div class="d-flex flex-stack">
 														<span class="fw-semibold fs-6 text-gray-800">Projetos ilimitados</span>
-														<i class="ki-outline ki-cross-circle fs-1"></i>
+														<i class="ki-outline ki-cross-circle fs-1 text-danger"></i>
 													</div>
 													<!--end::Item-->
 												</div>
@@ -1054,31 +1054,31 @@
 													<!--begin::Item-->
 													<div class="d-flex flex-stack mb-5">
 														<span class="fw-semibold fs-6  opacity-75 text-start pe-3">Até 50 usuários ativos</span>
-														<i class="ki-outline ki-check-circle fs-1 "></i>
+														<i class="ki-outline ki-check-circle fs-1 text-success"></i>
 													</div>
 													<!--end::Item-->
 													<!--begin::Item-->
 													<div class="d-flex flex-stack mb-5">
 														<span class="fw-semibold fs-6  opacity-75 text-start pe-3">Até 100 integrações de projeto</span>
-														<i class="ki-outline ki-check-circle fs-1 "></i>
+														<i class="ki-outline ki-check-circle fs-1 text-success"></i>
 													</div>
 													<!--end::Item-->
 													<!--begin::Item-->
 													<div class="d-flex flex-stack mb-5">
 														<span class="fw-semibold fs-6  opacity-75 text-start pe-3">Plataforma de análises avançadas</span>
-														<i class="ki-outline ki-check-circle fs-1 "></i>
+														<i class="ki-outline ki-check-circle fs-1 text-success"></i>
 													</div>
 													<!--end::Item-->
 													<!--begin::Item-->
 													<div class="d-flex flex-stack mb-5">
 														<span class="fw-semibold fs-6  opacity-75 text-start pe-3">Gestão de prazos e arquivos</span>
-														<i class="ki-outline ki-check-circle fs-1 "></i>
+														<i class="ki-outline ki-check-circle fs-1 text-success"></i>
 													</div>
 													<!--end::Item-->
 													<!--begin::Item-->
 													<div class="d-flex flex-stack">
 														<span class="fw-semibold fs-6  opacity-75">Projetos ilimitados</span>
-														<i class="ki-outline ki-cross-circle fs-1 "></i>
+														<i class="ki-outline ki-cross-circle fs-1 text-danger"></i>
 													</div>
 													<!--end::Item-->
 												</div>
