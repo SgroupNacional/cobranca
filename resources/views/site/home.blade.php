@@ -1401,22 +1401,22 @@
 								<!--begin::Block-->
 								<div class="rounded landing-dark-border p-9 mb-10">
 									<!--begin::Title-->
-									<h2 class="text-white">Would you need a Custom License?</h2>
+									<h2 class="text-white">Precisa de uma Licença Personalizada?</h2>
 									<!--end::Title-->
 									<!--begin::Text-->
-									<span class="fw-normal fs-4 text-gray-700">Email us to 
-									<a href="https://keenthemes.com/support" class="text-white opacity-50 text-hover-primary">support@keenthemes.com</a></span>
+									<span class="fw-normal fs-4 text-gray-700">Envie um e-mail para:
+									<a href="https://keenthemes.com/support" class="text-white opacity-50 text-hover-primary">suporte@sistemacobranca.com</a></span>
 									<!--end::Text-->
 								</div>
 								<!--end::Block-->
 								<!--begin::Block-->
 								<div class="rounded landing-dark-border p-9">
 									<!--begin::Title-->
-									<h2 class="text-white">How About a Custom Project?</h2>
+									<h2 class="text-white">Quer um Projeto Sob Medida?</h2>
 									<!--end::Title-->
 									<!--begin::Text-->
-									<span class="fw-normal fs-4 text-gray-700">Use Our Custom Development Service. 
-									<a href="pages/user-profile/overview.html" class="text-white opacity-50 text-hover-primary">Click to Get a Quote</a></span>
+									<span class="fw-normal fs-4 text-gray-700">Utilize nosso serviço de desenvolvimento personalizado. 
+									<a href="pages/user-profile/overview.html" class="text-white opacity-50 text-hover-primary"> Clique aqui para solicitar um orçamento</a></span>
 									<!--end::Text-->
 								</div>
 								<!--end::Block-->
@@ -1429,22 +1429,22 @@
 									<!--begin::Links-->
 									<div class="d-flex fw-semibold flex-column me-20">
 										<!--begin::Subtitle-->
-										<h4 class="fw-bold text-gray-500 mb-6">More for Metronic</h4>
+										<h4 class="fw-bold text-gray-500 mb-6">Mais sobre o Sistema</h4>
 										<!--end::Subtitle-->
 										<!--begin::Link-->
-										<a href="https://keenthemes.com/faqs" class="text-white opacity-50 text-hover-primary fs-5 mb-6">FAQ</a>
+										<a href="https://keenthemes.com/faqs" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Central de Ajuda</a>
 										<!--end::Link-->
 										<!--begin::Link-->
-										<a href="https://preview.keenthemes.com/html/metronic/docs" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Documentaions</a>
+										<a href="https://preview.keenthemes.com/html/metronic/docs" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Documentação</a>
 										<!--end::Link-->
 										<!--begin::Link-->
-										<a href="https://www.youtube.com/c/KeenThemesTuts/videos" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Video Tuts</a>
+										<a href="https://www.youtube.com/c/KeenThemesTuts/videos" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Vídeos Tutoriais</a>
 										<!--end::Link-->
 										<!--begin::Link-->
-										<a href="https://preview.keenthemes.com/html/metronic/docs/getting-started/changelog" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Changelog</a>
+										<a href="https://preview.keenthemes.com/html/metronic/docs/getting-started/changelog" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Novidades</a>
 										<!--end::Link-->
 										<!--begin::Link-->
-										<a href="https://devs.keenthemes.com/" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Support Forum</a>
+										<a href="https://devs.keenthemes.com/" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Fórum de Suporte</a>
 										<!--end::Link-->
 										<!--begin::Link-->
 										<a href="https://keenthemes.com/blog" class="text-white opacity-50 text-hover-primary fs-5">Blog</a>
@@ -1454,7 +1454,7 @@
 									<!--begin::Links-->
 									<div class="d-flex fw-semibold flex-column ms-lg-20">
 										<!--begin::Subtitle-->
-										<h4 class="fw-bold text-gray-500 mb-6">Stay Connected</h4>
+										<h4 class="fw-bold text-gray-500 mb-6">Conecte-se Conosco</h4>
 										<!--end::Subtitle-->
 										<!--begin::Link-->
 										<a href="https://www.facebook.com/keenthemes" class="mb-6">
@@ -1511,20 +1511,20 @@
 								</a>
 								<!--end::Logo image-->
 								<!--begin::Logo image-->
-								<span class="mx-5 fs-6 fw-semibold text-gray-600 pt-1" href="https://keenthemes.com">&copy; 2025 Keenthemes Inc.</span>
+								<span class="mx-5 fs-6 fw-semibold text-gray-600 pt-1" href="https://keenthemes.com">&copy; 2025 Shield</span>
 								<!--end::Logo image-->
 							</div>
 							<!--end::Copyright-->
 							<!--begin::Menu-->
 							<ul class="menu menu-gray-600 menu-hover-primary fw-semibold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
 								<li class="menu-item">
-									<a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
+									<a href="https://keenthemes.com" target="_blank" class="menu-link px-2">Sobre nós</a>
 								</li>
 								<li class="menu-item mx-5">
-									<a href="https://devs.keenthemes.com" target="_blank" class="menu-link px-2">Support</a>
+									<a href="https://devs.keenthemes.com" target="_blank" class="menu-link px-2">Suporte </a>
 								</li>
 								<li class="menu-item">
-									<a href="" target="_blank" class="menu-link px-2">Purchase</a>
+									<a href="" target="_blank" class="menu-link px-2">Planos ou Assinar</a>
 								</li>
 							</ul>
 							<!--end::Menu-->
