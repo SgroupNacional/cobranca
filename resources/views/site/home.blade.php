@@ -130,7 +130,7 @@
 							</span></h1>
 							<!--end::Title-->
 							<!--begin::Action-->
-							<a href="index.html" class="btn btn-primary">Ver Planos</a>
+							<a href="/site#pricing" class="btn btn-primary">Ver Planos</a>
 							<!--end::Action-->
 						</div>
 						<!--end::Heading-->
@@ -1441,43 +1441,6 @@
 										<!--end::Link-->
 									</div>
 									<!--end::Links-->
-									<!--begin::Links-->
-									<div class="d-flex fw-semibold flex-column ms-lg-20">
-										<!--begin::Subtitle-->
-										<h4 class="fw-bold text-gray-500 mb-6">Conecte-se Conosco</h4>
-										<!--end::Subtitle-->
-										<!--begin::Link-->
-										<a href="https://www.facebook.com/keenthemes" class="mb-6">
-											<img src="assets/media/svg/brand-logos/facebook-4.svg" class="h-20px me-2" alt="" />
-											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Facebook</span>
-										</a>
-										<!--end::Link-->
-										<!--begin::Link-->
-										<a href="https://github.com/KeenthemesHub" class="mb-6">
-											<img src="assets/media/svg/brand-logos/github.svg" class="h-20px me-2" alt="" />
-											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Github</span>
-										</a>
-										<!--end::Link-->
-										<!--begin::Link-->
-										<a href="https://twitter.com/keenthemes" class="mb-6">
-											<img src="assets/media/svg/brand-logos/twitter.svg" class="h-20px me-2" alt="" />
-											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Twitter</span>
-										</a>
-										<!--end::Link-->
-										<!--begin::Link-->
-										<a href="https://dribbble.com/keenthemes" class="mb-6">
-											<img src="assets/media/svg/brand-logos/dribbble-icon-1.svg" class="h-20px me-2" alt="" />
-											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Dribbble</span>
-										</a>
-										<!--end::Link-->
-										<!--begin::Link-->
-										<a href="https://www.instagram.com/keenthemes" class="mb-6">
-											<img src="assets/media/svg/brand-logos/instagram-2-1.svg" class="h-20px me-2" alt="" />
-											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Instagram</span>
-										</a>
-										<!--end::Link-->
-									</div>
-									<!--end::Links-->
 								</div>
 								<!--end::Navs-->
 							</div>
@@ -1500,19 +1463,6 @@
 								<!--end::Logo image-->
 							</div>
 							<!--end::Copyright-->
-							<!--begin::Menu-->
-							<ul class="menu menu-gray-600 menu-hover-primary fw-semibold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
-								<li class="menu-item">
-									<a href="https://keenthemes.com" target="_blank" class="menu-link px-2">Sobre nós</a>
-								</li>
-								<li class="menu-item mx-5">
-									<a href="https://devs.keenthemes.com" target="_blank" class="menu-link px-2">Suporte </a>
-								</li>
-								<li class="menu-item">
-									<a href="" target="_blank" class="menu-link px-2">Planos ou Assinar</a>
-								</li>
-							</ul>
-							<!--end::Menu-->
 						</div>
 						<!--end::Wrapper-->
 					</div>
