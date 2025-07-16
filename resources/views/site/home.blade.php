@@ -137,43 +137,13 @@
 						<!--begin::Clients-->
 						<div class="d-flex flex-center flex-wrap position-relative px-5">
 							<!--begin::Client-->
-							<div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Fujifilm">
-								<img src="assets/media/svg/brand-logos/fujifilm.svg" class="mh-30px mh-lg-40px" alt="" />
+							<div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="rastrosystem">
+								<img src="assets/media/svg/brand-logos/rastro.png" class="mh-30px mh-lg-40px" alt="logo da rastrosystem" />
 							</div>
 							<!--end::Client-->
 							<!--begin::Client-->
-							<div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Vodafone">
-								<img src="assets/media/svg/brand-logos/vodafone.svg" class="mh-30px mh-lg-40px" alt="" />
-							</div>
-							<!--end::Client-->
-							<!--begin::Client-->
-							<div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="KPMG International">
-								<img src="assets/media/svg/brand-logos/kpmg.svg" class="mh-30px mh-lg-40px" alt="" />
-							</div>
-							<!--end::Client-->
-							<!--begin::Client-->
-							<div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Nasa">
-								<img src="assets/media/svg/brand-logos/nasa.svg" class="mh-30px mh-lg-40px" alt="" />
-							</div>
-							<!--end::Client-->
-							<!--begin::Client-->
-							<div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Aspnetzero">
-								<img src="assets/media/svg/brand-logos/aspnetzero.svg" class="mh-30px mh-lg-40px" alt="" />
-							</div>
-							<!--end::Client-->
-							<!--begin::Client-->
-							<div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="AON - Empower Results">
-								<img src="assets/media/svg/brand-logos/aon.svg" class="mh-30px mh-lg-40px" alt="" />
-							</div>
-							<!--end::Client-->
-							<!--begin::Client-->
-							<div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Hewlett-Packard">
-								<img src="assets/media/svg/brand-logos/hp-3.svg" class="mh-30px mh-lg-40px" alt="" />
-							</div>
-							<!--end::Client-->
-							<!--begin::Client-->
-							<div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Truman">
-								<img src="assets/media/svg/brand-logos/truman.svg" class="mh-30px mh-lg-40px" alt="" />
+							<div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="sgroupnacional">
+								<img src="assets/media/svg/brand-logos/sgroup.png" class="mh-30px mh-lg-60px" alt="logo da sgroup" />
 							</div>
 							<!--end::Client-->
 						</div>
@@ -564,16 +534,6 @@
 							<!--end::Item-->
 						</div>
 						<!--end::Wrapper-->
-						<!--begin::Button-->
-						<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_prev">
-							<i class="ki-outline ki-left fs-2x"></i>
-						</button>
-						<!--end::Button-->
-						<!--begin::Button-->
-						<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_next">
-							<i class="ki-outline ki-right fs-2x"></i>
-						</button>
-						<!--end::Button-->
 					</div>
 					<!--end::Slider-->
 				</div>
@@ -1459,7 +1419,7 @@
 							<!--begin::Copyright-->
 							<div class="d-flex align-items-center order-2 order-md-1">
 								<!--begin::Logo image-->
-								<span class="mx-5 fs-6 fw-semibold text-gray-600 pt-1" href="https://keenthemes.com">&copy; 2025 Shield</span>
+								<span class="mx-5 fs-6 fw-semibold text-gray-600 pt-1" href="https://keenthemes.com">&copy; 2025 Shield System</span>
 								<!--end::Logo image-->
 							</div>
 							<!--end::Copyright-->
