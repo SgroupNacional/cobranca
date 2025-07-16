@@ -250,7 +250,7 @@
                                     </span>
                                     <div class="menu-sub menu-sub-accordion">
                                         <div class="menu-item">
-                                            <a class="menu-link" href="pages/user-profile/overview.html">
+                                            <a class="menu-link" href="{{Route('canais.index')}}">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -318,6 +318,9 @@
 <script src="assets/js/scripts.bundle.js"></script>
 @yield('js')
 <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @yield('script')
+@yield('modais')
 </body>
 </html>
