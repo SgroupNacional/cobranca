@@ -991,7 +991,7 @@
 									<div class="col-xl-4">
 										<div class="d-flex h-100 align-items-center">
 											<!--begin::Option-->
-											<div class="w-100 d-flex flex-column flex-center rounded-3 bg-warning py-20 px-10 text-black">
+											<div class="w-100 d-flex flex-column flex-center rounded-3 bg-primary-subtle py-20 px-10 text-black">
 												<!--begin::Heading-->
 												<div class="mb-7 text-center">
 													<!--begin::Title-->
