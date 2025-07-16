@@ -1323,7 +1323,7 @@
 						</div>
 						<!--end::Content-->
 						<!--begin::Link-->
-						<a href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?irgwc=1&clickid=Qb1XFm3dIxyIUCez3ZXf1X0mUks0kb3cC2sEUQ0&iradid=275988&irpid=1330466&iradtype=ONLINE_TRACKING_LINK&irmptype=mediapartner&mp_value1=&utm_campaign=af_impact_radius_1330466&utm_medium=affiliate&utm_source=impact_radius" class="btn btn-lg btn-outline border-2 btn-outline-white flex-shrink-0 my-2">Começar Agora</a>
+						<a href="/login" class="btn btn-lg btn-outline border-2 btn-outline-white flex-shrink-0 my-2">Começar Agora</a>
 						<!--end::Link-->
 					</div>
 					<!--end::Highlight-->
