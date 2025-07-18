@@ -217,7 +217,7 @@
                                     </span>
                                     <div class="menu-sub menu-sub-accordion">
                                         <div class="menu-item">
-                                            <a class="menu-link" href="pages/user-profile/overview.html">
+                                            <a class="menu-link" href="{{Route('cliente.index')}}">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
@@ -291,9 +291,7 @@
 
             <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
                 <div class="d-flex flex-column flex-column-fluid">
-                    <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
-                        @yield('corpo')
-                    </div>
+                    @yield('corpo')
                 </div>
                 <div id="kt_app_footer" class="app-footer">
                     <div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">

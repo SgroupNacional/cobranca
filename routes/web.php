@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< Updated upstream
 use Illuminate\Support\Facades\Route;
+=======
+use App\Http\Controllers\ClienteController;
+>>>>>>> Stashed changes
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CanalController;
@@ -17,6 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+<<<<<<< Updated upstream
     Route::get('/canais/select', function () {
         return view('canais.select');
     })->name('canais.select');
@@ -29,6 +34,9 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/canais/update', [CanalController::class, 'update'])->name('canais.update');
 
+=======
+    Route::get('/cliente', [ClienteController::class, 'index'])->name('cliente.index');
+>>>>>>> Stashed changes
 });
 
 Route::get('/site', [SiteController::class, 'index'])->name('site.home');
