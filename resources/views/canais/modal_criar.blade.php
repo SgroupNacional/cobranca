@@ -27,10 +27,9 @@
                     </div>
                     <!-- Campos dinâmicos -->
                     <div class="tipo-campos d-none" data-tipo="api_oficial">
-                        <div class="mb-3"><label>Cliente ID</label><input type="text" class="form-control" name="cliente_id"></div>
+                        <div class="mb-3"><label>Business_Id</label><input type="text" class="form-control" name="Business_Id"></div>
+                        <div class="mb-3"><label>Number_Id</label><input type="url" class="form-control" name="Number_Id"></div>
                         <div class="mb-3"><label>Token</label><input type="text" class="form-control" name="token"></div>
-                        <div class="mb-3"><label>URL</label><input type="url" class="form-control" name="url"></div>
-                        <div class="mb-3"><label>Cliente Secret</label><input type="text" class="form-control" name="cliente_secret"></div>
                     </div>
                     <div class="tipo-campos d-none" data-tipo="api_noficial">
                         <div class="mb-3"><label>Instância</label><input type="text" class="form-control" name="instancia"></div>

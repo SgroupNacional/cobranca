@@ -122,19 +122,16 @@
                     form.find('input[name="nome"]').val(canal.nome);
                     form.find('select[name="tipo"]').val(canal.tipo).trigger('change');
                 
-                    // Preenche os campos dinâmicos conforme o tipo
             switch (canal.tipo) {
                 case 'api_oficial':
-                    form.find('input[name="cliente_id"]').val(canal.cliente_id);
+                    form.find('input[name="Business_Id"]').val(canal.Business_Id);
+                    form.find('input[name="Number_Id"]').val(canal.Number_Id);
                     form.find('input[name="token"]').val(canal.token);
-                    form.find('input[name="url"]').val(canal.url);
-                    form.find('input[name="cliente_secret"]').val(canal.cliente_secret);
                     break;
                 case 'api_noficial':
                     form.find('input[name="instancia"]').val(canal.instancia);
                     form.find('input[name="token"]').val(canal.token);
                     form.find('input[name="webhook_url"]').val(canal.webhook_url);
-                    form.find('input[name="chave_secreta"]').val(canal.chave_secreta);
                     break;
                 case 'sms':
                     form.find('input[name="remetente"]').val(canal.remetente);
