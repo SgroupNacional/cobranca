@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CanalController;
-
+use App\Http\Controllers\SiteController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,6 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/canais/update', [CanalController::class, 'update'])->name('canais.update');
 
 });
+
+Route::get('/site', [SiteController::class, 'index'])->name('site.home');
 
 require __DIR__.'/auth.php';
 
