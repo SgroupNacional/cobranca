@@ -11,7 +11,7 @@ return new class extends Migration
      */
    public function up(): void
     {
-        Schema::create('canals', function (Blueprint $table) {
+        Schema::create('canais', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
             $table->enum('tipo', [
@@ -28,7 +28,7 @@ return new class extends Migration
     }
     public function down(): void
     {
-        Schema::dropIfExists('canals');
+        Schema::dropIfExists('canais');
     }
 };
 
