@@ -5,12 +5,12 @@
     <title>Metronic - The World's #1 Selling Tailwind CSS & Bootstrap Admin Template by KeenThemes</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+    <link rel="shortcut icon" href="/assets/media/logos/favicon.ico" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
-    <link href="assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
     @yield('css')
-    <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
     <script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
 </head>
 
@@ -28,7 +28,7 @@
                     id="kt_app_header_container">
                     <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
                         <a href="index.html" class="d-lg-none">
-                            <img alt="Logo" src="assets/media/logos/default-small.svg" class="h-30px" />
+                            <img alt="Logo" src="/assets/media/logos/default-small.svg" class="h-30px" />
                         </a>
                     </div>
                     <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1"
@@ -121,14 +121,14 @@
                                 <div class="cursor-pointer symbol symbol-35px"
                                     data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent"
                                     data-kt-menu-placement="bottom-end">
-                                    <img src="assets/media/avatars/300-3.jpg" class="rounded-3" alt="user" />
+                                    <img src="/assets/media/avatars/300-3.jpg" class="rounded-3" alt="user" />
                                 </div>
                                 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px"
                                     data-kt-menu="true">
                                     <div class="menu-item px-3">
                                         <div class="menu-content d-flex align-items-center px-3">
                                             <div class="symbol symbol-50px me-5">
-                                                <img alt="Logo" src="assets/media/avatars/300-3.jpg" />
+                                                <img alt="Logo" src="/assets/media/avatars/300-3.jpg" />
                                             </div>
                                             <div class="d-flex flex-column">
                                                 <div class="fw-bold d-flex align-items-center fs-5">
@@ -175,9 +175,9 @@
                     data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
                     <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
                         <a href="#">
-                            <img alt="Logo" src="assets/media/logos/default-dark.svg"
+                            <img alt="Logo" src="/assets/media/logos/default-dark.svg"
                                 class="h-25px app-sidebar-logo-default" />
-                            <img alt="Logo" src="assets/media/logos/default-small.svg"
+                            <img alt="Logo" src="/assets/media/logos/default-small.svg"
                                 class="h-20px app-sidebar-logo-minimize" />
                         </a>
                         <div id="kt_app_sidebar_toggle"
@@ -403,10 +403,10 @@
             <span class="path2"></span>
         </i>
     </div>
-    <script src="assets/plugins/global/plugins.bundle.js"></script>
-    <script src="assets/js/scripts.bundle.js"></script>
+    <script src="/assets/plugins/global/plugins.bundle.js"></script>
+    <script src="/assets/js/scripts.bundle.js"></script>
     @yield('js')
-    <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <script src="/assets/plugins/custom/datatables/datatables.bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @yield('script')

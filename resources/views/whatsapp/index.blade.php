@@ -15,7 +15,8 @@
                         <span class="path1"></span>
                         <span class="path2"></span>
                     </i>
-                    <input type="text" id="pesquisa" class="form-control form-control-solid w-250px ps-13" placeholder="Pesquisar" />
+                    <input type="text" id="pesquisa" class="form-control form-control-solid w-250px ps-13"
+                        placeholder="Pesquisar" />
                 </div>
 
                 <!-- Botão à direita -->
@@ -27,19 +28,19 @@
         <div class="card-body pt-0">
             <table class="table align-middle table-row-dashed fs-6 gy-5" id="tabela-whatsapp">
                 <thead>
-                <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-                    <th>#</th>
-                    <th>Nome</th>
-                    <th>Tipo de API</th>
-                    <th>Número</th>
-                    <th>ID da Conta (Meta)</th>
-                    <th>ID do Número (Meta)</th>
-                    <th>Instance ID (Evolution)</th>
-                    <th class="text-end">Ações</th>
-                </tr>
+                    <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Tipo de API</th>
+                        <th>Número</th>
+                        <th>ID da Conta (Meta)</th>
+                        <th>ID do Número (Meta)</th>
+                        <th>Instance ID (Evolution)</th>
+                        <th class="text-end">Ações</th>
+                    </tr>
                 </thead>
                 <tbody class="text-gray-600 fw-semibold">
-                {{-- Populado via DataTable --}}
+                    {{-- Populado via DataTable --}}
                 </tbody>
             </table>
         </div>
@@ -53,20 +54,28 @@
 @section('script')
     <script>
         $(document).ready(function () {
+            $.ajaxSetup({
+                headers: { 'X-CSRF-TOKEN': '{{ csrf_token() }}' }
+            });
+
             const tabela = $('#tabela-whatsapp').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: {
                     url: '{{ route('whatsapp.listar') }}',
-                    type: 'POST',
-                    data: {
-                        _token: '{{ csrf_token() }}'
-                    }
+                    type: 'POST'
                 },
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'nome', name: 'nome' },
-                    { data: 'tipo_api', name: 'tipo_api' },
+                    {
+                        data: 'tipo_api',
+                        name: 'tipo_api',
+                        render: function (data) {
+                            const badge = data === 'meta' ? 'primary' : 'success';
+                            return `<span class="badge badge-light-${badge}">${data.charAt(0).toUpperCase() + data.slice(1)}</span>`;
+                        }
+                    },
                     { data: 'numero', name: 'numero' },
                     { data: 'business_account_id', name: 'business_account_id' },
                     { data: 'phone_number_id', name: 'phone_number_id' },
@@ -74,47 +83,44 @@
                     { data: 'acoes', name: 'acoes', orderable: false, searchable: false, className: 'text-end' }
                 ],
                 language: {
-                    url: '/assets/js/json/datatablePTBR.json'
+                    url: '/assets/js/json/pt-BR.json'
                 }
             });
 
             $("#pesquisa").on('keyup', function () {
                 tabela.search(this.value).draw();
             });
-        });
-    </script>
 
-    <script>
-        $(document).on('click', '.btn-excluir', function () {
-            const id = $(this).data('id');
+            $(document).on('click', '.btn-excluir', function () {
+                const id = $(this).data('id');
 
-            iziToast.question({
-                timeout: false,
-                close: false,
-                overlay: true,
-                displayMode: 'once',
-                title: 'Confirmação',
-                message: 'Tem certeza que deseja excluir esta conta?',
-                position: 'center',
-                buttons: [
-                    ['<button><b>Sim, excluir</b></button>', function (instance, toast) {
-                        instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-
-                        const form = $('<form>', {
-                            method: 'POST',
-                            action: `/whatsapp/${id}`
+                Swal.fire({
+                    title: 'Tem certeza?',
+                    text: 'Essa ação não poderá ser desfeita!',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Sim, excluir',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: `/whatsapp/${id}`,
+                            type: 'POST',
+                            data: {
+                                _method: 'DELETE',
+                                _token: '{{ csrf_token() }}'
+                            },
+                            success: function () {
+                                tabela.ajax.reload();
+                            },
+                            error: function () {
+                                Swal.fire('Erro', 'Não foi possível excluir o template.', 'error');
+                            }
                         });
-
-                        form.append($('<input>', { type: 'hidden', name: '_token', value: '{{ csrf_token() }}' }));
-                        form.append($('<input>', { type: 'hidden', name: '_method', value: 'DELETE' }));
-
-                        $('body').append(form);
-                        form.submit();
-                    }, true],
-                    ['<button>Cancelar</button>', function (instance, toast) {
-                        instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-                    }]
-                ]
+                    }
+                });
             });
         });
     </script>
