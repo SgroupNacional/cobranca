@@ -29,7 +29,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/canais/{id}', [CanalController::class, 'destroy'])->name('canais.destroy');
 
     Route::post('/canais/update', [CanalController::class, 'update'])->name('canais.update');
+
+    //Clientes
     Route::get('/cliente', [ClienteController::class, 'index'])->name('cliente.index');
+    Route::post('/cliente/listar', [ClienteController::class, 'listar'])->name('cliente.listar');
 });
 
 Route::get('/site', [SiteController::class, 'index'])->name('site.home');
