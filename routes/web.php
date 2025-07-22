@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CanalController;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\TemplateController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,11 +31,13 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/canais/update', [CanalController::class, 'update'])->name('canais.update');
     Route::get('/cliente', [ClienteController::class, 'index'])->name('cliente.index');
+
+    Route::resource('templates', TemplateController::class);
 });
 
 Route::get('/site', [SiteController::class, 'index'])->name('site.home');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 
 
