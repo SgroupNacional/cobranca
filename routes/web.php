@@ -35,6 +35,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('templates', TemplateController::class);
     Route::post('/templates/data', [TemplateController::class, 'data'])->name('templates.data');
+
+    Route::resource('whatsapp', ContaWhatsappController::class);
+    Route::post('whatsapp/listar', [ContaWhatsappController::class, 'listar'])->name('whatsapp.listar');
 });
 
 Route::get('/site', [SiteController::class, 'index'])->name('site.home');
