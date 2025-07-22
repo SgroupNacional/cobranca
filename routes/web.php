@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CanalController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\ContaWhatsappController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/cliente', [ClienteController::class, 'index'])->name('cliente.index');
 
     Route::resource('templates', TemplateController::class);
+    Route::post('/templates/data', [TemplateController::class, 'data'])->name('templates.data');
 });
 
 Route::get('/site', [SiteController::class, 'index'])->name('site.home');

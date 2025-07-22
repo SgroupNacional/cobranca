@@ -32,33 +32,14 @@
                         <th>Nome</th>
                         <th>Tipo</th>
                         <th>Conta WhatsApp</th>
+                        <th>Template Name</th>
+                        <th>Mensagem Livre</th>
+                        <th>Componentes</th>
                         <th class="text-end">Ações</th>
                     </tr>
                 </thead>
                 <tbody class="text-gray-600 fw-semibold">
-                    @foreach($templates as $template)
-                        <tr>
-                            <td>{{ $template->id }}</td>
-                            <td>{{ $template->nome }}</td>
-                            <td>
-                                <span class="badge badge-light-{{ $template->tipo == 'meta' ? 'primary' : 'success' }}">
-                                    {{ ucfirst($template->tipo) }}
-                                </span>
-                            </td>
-                            <td>{{ $template->contaWhatsapp->nome ?? '-' }}</td>
-                            <td class="text-end">
-                                <a href="{{ route('templates.edit', $template->id) }}"
-                                    class="btn btn-sm btn-warning me-1">Editar</a>
 
-                                <form action="{{ route('templates.destroy', $template->id) }}" method="POST" class="d-inline"
-                                    onsubmit="return confirm('Tem certeza que deseja excluir este template?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -79,9 +60,42 @@
 @section('script')
     <script>
         $(document).ready(function () {
+            $.ajaxSetup({
+                headers: { 'X-CSRF-TOKEN': '{{ csrf_token() }}' }
+            });
+
             const tabela = $('#tabela-templates').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: '{{ route('templates.data') }}',
+                    type: 'POST'
+                },
+                columns: [
+                    { data: 'id', name: 'templates.id' },
+                    { data: 'nome', name: 'templates.nome' },
+                    {
+                        data: 'tipo',
+                        name: 'templates.tipo',
+                        render: function (data) {
+                            const badge = data === 'meta' ? 'primary' : 'success';
+                            return `<span class="badge badge-light-${badge}">${data.charAt(0).toUpperCase() + data.slice(1)}</span>`;
+                        }
+                    },
+                    { data: 'conta', name: 'conta_whatsapp_id' },
+                    { data: 'template_name', name: 'templates.template_name' },
+                    { data: 'mensagem_livre', name: 'templates.mensagem_livre' },
+                    { data: 'componentes', name: 'templates.componentes' },
+                    {
+                        data: 'acoes',
+                        name: 'acoes',
+                        orderable: false,
+                        searchable: false,
+                        className: 'text-end'
+                    }
+                ],
                 language: {
-                    url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json'
+                    url: 'assets/js/json/pt-BR.json'
                 }
             });
 
@@ -89,10 +103,87 @@
                 tabela.search(this.value).draw();
             });
 
+            const tipoSelect = document.getElementById("tipo-template");
+            const campos = document.querySelectorAll("#form-template .tipo-campos");
+
+            tipoSelect.addEventListener("change", function () {
+                const tipoSelecionado = this.value;
+                campos.forEach((div) => {
+                    div.classList.toggle("d-none", div.getAttribute("data-tipo") !== tipoSelecionado);
+                });
+            });
+
             $('#kt_modal_1').on('hidden.bs.modal', function () {
-                document.getElementById('tipo-canal').value = '';
-                document.querySelector('#form-canal').reset();
+                document.getElementById('tipo-template').value = '';
+                document.getElementById('form-template').reset();
                 campos.forEach((div) => div.classList.add('d-none'));
+            });
+
+            const tipoSelectEditar = document.getElementById("tipo-template-editar");
+            const camposEditar = document.querySelectorAll("#form-template-editar .tipo-campos");
+
+            tipoSelectEditar.addEventListener("change", function () {
+                const tipoSelecionado = this.value;
+                camposEditar.forEach((div) => {
+                    div.classList.toggle("d-none", div.getAttribute("data-tipo") !== tipoSelecionado);
+                });
+            });
+
+            $('#kt_modal_editar').on('hidden.bs.modal', function () {
+                document.getElementById('tipo-template-editar').value = '';
+                document.getElementById('form-template-editar').reset();
+                camposEditar.forEach((div) => div.classList.add('d-none'));
+            });
+
+            $(document).on('click', '.btn-editar', function () {
+                const btn = $(this);
+                const form = $('#form-template-editar');
+
+                form.attr('action', `/templates/${btn.data('id')}`);
+                form.find('input[name="id"]').val(btn.data('id'));
+                form.find('input[name="nome"]').val(btn.data('nome'));
+                form.find('select[name="conta_whatsapp_id"]').val(btn.data('conta'));
+                form.find('select[name="tipo"]').val(btn.data('tipo')).trigger('change');
+                form.find('input[name="template_name"]').val(btn.data('template_name'));
+                form.find('textarea[name="mensagem_livre"]').val(btn.data('mensagem_livre'));
+
+                camposEditar.forEach((div) => {
+                    div.classList.toggle('d-none', div.getAttribute('data-tipo') !== btn.data('tipo'));
+                });
+
+                $('#kt_modal_editar').modal('show');
+            });
+
+            $(document).on('click', '.btn-excluir', function () {
+                const id = $(this).data('id');
+
+                Swal.fire({
+                    title: 'Tem certeza?',
+                    text: 'Essa ação não poderá ser desfeita!',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Sim, excluir',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: `/templates/${id}`,
+                            type: 'POST',
+                            data: {
+                                _method: 'DELETE',
+                                _token: '{{ csrf_token() }}'
+                            },
+                            success: function () {
+                                tabela.ajax.reload();
+                            },
+                            error: function () {
+                                Swal.fire('Erro', 'Não foi possível excluir o template.', 'error');
+                            }
+                        });
+                    }
+                });
             });
         });
     </script>

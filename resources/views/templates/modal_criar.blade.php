@@ -8,62 +8,48 @@
                     <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
                 </div>
             </div>
-            <!-- <div class="modal-body">
-                <form id="form-canal">
+            <div class="modal-body">
+                <form id="form-template" method="POST" action="{{ route('templates.store') }}">
+                    @csrf
                     <div class="mb-5">
-                        <label class="form-label">Nome do Canal</label>
+                        <label class="form-label">Nome do Template</label>
                         <input type="text" name="nome" class="form-control" required>
                     </div>
                     <div class="mb-5">
-                        <label class="form-label">Tipo</label>
-                        <select name="tipo" class="form-select" id="tipo-canal" required>
+                        <label class="form-label">Conta WhatsApp</label>
+                        <select name="conta_whatsapp_id" class="form-select" required>
                             <option value="">Selecione</option>
-                            <option value="api_oficial">API Oficial</option>
-                            <option value="api_noficial">API Não Oficial</option>
-                            <option value="sms">SMS</option>
-                            <option value="voz">Voz</option>
-                            <option value="email">Email</option>
+                            @foreach($contas as $conta)
+                                <option value="{{ $conta->id }}">{{ $conta->nome }}</option>
+                            @endforeach
                         </select>
                     </div>
-                    <div class="tipo-campos d-none" data-tipo="api_oficial">
-                        <div class="mb-3"><label>Business_Id</label><input type="text" class="form-control"
-                                name="Business_Id"></div>
-                        <div class="mb-3"><label>Number_Id</label><input type="url" class="form-control"
-                                name="Number_Id"></div>
-                        <div class="mb-3"><label>Token</label><input type="text" class="form-control" name="token">
+                    <div class="mb-5">
+                        <label class="form-label">Tipo</label>
+                        <select name="tipo" class="form-select" id="tipo-template" required>
+                            <option value="">Selecione</option>
+                            <option value="meta">Meta</option>
+                            <option value="evolution">Evolution</option>
+                        </select>
+                    </div>
+                    <div class="tipo-campos d-none" data-tipo="meta">
+                        <div class="mb-3">
+                            <label>Template Meta</label>
+                            <input type="text" class="form-control" name="template_meta">
                         </div>
                     </div>
-                    <div class="tipo-campos d-none" data-tipo="api_noficial">
-                        <div class="mb-3"><label>Instância</label><input type="text" class="form-control"
-                                name="instancia"></div>
-                        <div class="mb-3"><label>Token</label><input type="text" class="form-control" name="token">
+                    <div class="tipo-campos d-none" data-tipo="evolution">
+                        <div class="mb-3">
+                            <label>Mensagem Livre</label>
+                            <textarea class="form-control" name="mensagem_livre"></textarea>
                         </div>
-                        <div class="mb-3"><label>Webhook URL</label><input type="url" class="form-control"
-                                name="webhook_url"></div>
-                        <div class="mb-3"><label>Chave Secreta</label><input type="text" class="form-control"
-                                name="chave_secreta"></div>
-                    </div>
-                    <div class="tipo-campos d-none" data-tipo="sms">
-                        <div class="mb-3"><label>Remetente</label><input type="text" class="form-control"
-                                name="remetente"></div>
-                        <div class="mb-3"><label>API Key</label><input type="text" class="form-control" name="api_key">
-                        </div>
-                        <div class="mb-3"><label>URL</label><input type="url" class="form-control" name="url_sms"></div>
-                    </div>
-                    <div class="tipo-campos d-none" data-tipo="email">
-                        <div class="mb-3"><label>SMTP Host</label><input type="text" class="form-control"
-                                name="smtp_host"></div>
-                        <div class="mb-3"><label>Usuário</label><input type="text" class="form-control"
-                                name="smtp_user"></div>
-                        <div class="mb-3"><label>Senha</label><input type="password" class="form-control"
-                                name="smtp_password"></div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Fechar</button>
-                <button type="submit" class="btn btn-primary">Salvar</button>
-            </div> -->
+                <button type="submit" form="form-template" class="btn btn-primary">Salvar</button>
+            </div>
         </div>
     </div>
 </div>

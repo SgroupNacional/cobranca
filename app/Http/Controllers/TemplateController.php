@@ -6,13 +6,15 @@ use App\Models\Template;
 use App\Models\ContaWhatsapp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Yajra\DataTables\Facades\DataTables;
 
 class TemplateController extends Controller
 {
     public function index()
     {
         $templates = Template::with('contaWhatsapp')->get();
-        return view('templates.index', compact('templates'));
+        $contas = ContaWhatsapp::all();
+        return view('templates.index', compact('templates', 'contas'));
     }
 
     public function listarTemplatesMeta($contaId)
@@ -33,8 +35,42 @@ class TemplateController extends Controller
         }
     }
 
-
-
+    public function data()
+    {
+        return DataTables::of(
+            Template::with('contaWhatsapp')->select([
+                'templates.id',
+                'templates.nome',
+                'templates.tipo',
+                'templates.template_name',
+                'templates.mensagem_livre',
+                'templates.componentes',
+                'templates.conta_whatsapp_id',
+            ])
+        )
+            ->addColumn('conta', function ($tpl) {
+                return $tpl->contaWhatsapp->nome ?? '-';
+            })
+            ->addColumn('acoes', function ($tpl) {
+                return '
+                <div class="text-end">
+                    <button type="button"
+                            class="btn btn-sm btn-warning btn-editar me-1"
+                            data-bs-toggle="modal"
+                            data-bs-target="#kt_modal_editar"
+                            data-id="' . $tpl->id . '"
+                            data-nome="' . e($tpl->nome) . '"
+                            data-tipo="' . $tpl->tipo . '"
+                            data-conta="' . $tpl->conta_whatsapp_id . '"
+                            data-template_name="' . e($tpl->template_name) . '"
+                            data-componentes=\'' . e(json_encode($tpl->componentes)) . '\'
+                            data-mensagem_livre="' . e($tpl->mensagem_livre) . '">Editar</button>
+                    <button type="button" class="btn btn-sm btn-danger btn-excluir" data-id="' . $tpl->id . '">Excluir</button>
+                </div>';
+            })
+            ->rawColumns(['acoes'])
+            ->make(true);
+    }
 
     public function create()
     {
