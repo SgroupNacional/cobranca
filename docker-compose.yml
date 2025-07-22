@@ -1,0 +1,93 @@
+services:
+  # 1) Banco de dados MySQL
+  cobranca-db:
+    image: mysql:8.0
+    container_name: cobranca-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: cobranca
+    ports:
+      - "3306:3306"
+    volumes:
+      - cobranca-data:/var/lib/mysql
+    networks:
+      - cobranca-network
+
+  # 2) Aplicação Laravel
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cobranca_app
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    ports:
+      - "8000:8000"
+    depends_on:
+      - cobranca-db
+    # injeta todas as vars do seu .env (DB_*, APP_*, etc)
+    env_file:
+      - .env
+    # aqui só sobrescrevemos, por exemplo, se quiser mudar o driver de sessão
+    environment:
+      SESSION_DRIVER: cookie
+    # inicia o servidor interno do Laravel
+    command: php artisan serve --host=0.0.0.0 --port=8000
+    networks:
+      - cobranca-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  # 3) Queue-worker
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cobranca_worker
+    restart: always
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    depends_on:
+      - cobranca-db
+      - app
+    environment:
+      QUEUE_CONNECTION: database
+      DB_CONNECTION: mysql
+      DB_HOST: cobranca-db
+      DB_PORT: 3306
+      DB_DATABASE: cobranca
+      DB_USERNAME: root
+      DB_PASSWORD: ""
+      LOG_CHANNEL: errorlog
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    command: >
+      php artisan queue:work
+        --sleep=1
+        --tries=3
+        --timeout=10800
+        --max-jobs=0
+        --max-time=0
+        --memory=1024
+        --verbose
+    networks:
+      - cobranca-network
+
+volumes:
+  cobranca-data:
+
+networks:
+  cobranca-network:
+    external: true
+
