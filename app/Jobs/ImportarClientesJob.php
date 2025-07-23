@@ -8,6 +8,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use App\Helpers\ApiSga;
+use App\Helpers\ApiIleva;
 
 class ImportarClientesJob implements ShouldQueue
 {
@@ -19,5 +20,6 @@ class ImportarClientesJob implements ShouldQueue
     {
         // Chama seu helper que já faz todo o import
         ApiSga::importarAssociados('todos');
+        ApiIleva::importarAssociados();
     }
 }
