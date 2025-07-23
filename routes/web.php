@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('templates', TemplateController::class);
     Route::post('/templates/data', [TemplateController::class, 'data'])->name('templates.data');
+    Route::get('templates/meta/listar-templates/{contaId}', [TemplateController::class, 'listarTemplatesMeta']);
 
     Route::get('/whatsapp', [ContaWhatsappController::class, 'index'])->name('whatsapp.index');
     Route::get('/whatsapp/criar', [ContaWhatsappController::class, 'create'])->name('whatsapp.create');
