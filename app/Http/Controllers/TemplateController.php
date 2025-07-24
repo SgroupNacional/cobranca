@@ -172,9 +172,6 @@ class TemplateController extends Controller
         return redirect()->route('templates.index')->with('success', 'Template cadastrado com sucesso!');
     }
 
-
-
-
     public function edit(Template $template)
     {
         $contas = ContaWhatsapp::all();
@@ -186,7 +183,6 @@ class TemplateController extends Controller
     {
         $request->validate([
             'nome' => 'required|string|max:255',
-            'tipo' => 'required|in:meta,evolution',
             'conta_whatsapp_id' => 'required|exists:contas_whatsapp,id',
         ]);
 

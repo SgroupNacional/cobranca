@@ -7,7 +7,6 @@
         </div>
 
         <div class="card-body pt-0">
-            <pre>{{ $template }}</pre>
             <form method="POST" action="{{ route('templates.update', $template->id) }}">
                 @csrf
                 @method('PUT')
@@ -244,9 +243,14 @@
             evolutionFields.classList.add('d-none');
             previewContainer.classList.add('d-none');
             headerField.classList.add('d-none');
+            templateMeta.disabled = true;
+            templateMeta.required = false;
 
             if (tipo === 'meta') {
                 metaFields.classList.remove('d-none');
+                templateMeta.disabled = false;
+                templateMeta.required = true;
+
                 initDraggable();
                 templateMeta.innerHTML = '<option>Carregando...</option>';
                 fetch(`/templates/meta/listar-templates/${this.value}`)
@@ -260,7 +264,6 @@
                             opt.dataset.components = JSON.stringify(item.components);
                             if (item.name === selectedTemplate) opt.selected = true;
                             templateMeta.appendChild(opt);
-                            console.log(item, selectedTemplate);
                         });
                         if (selectedTemplate) {
                             templateMeta.dispatchEvent(new Event('change'));
