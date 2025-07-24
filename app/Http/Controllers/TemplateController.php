@@ -87,7 +87,7 @@ class TemplateController extends Controller
             $nested['id'] = $item->id;
             $nested['conta_whatsapp_nome'] = $item->conta_whatsapp_nome;
             $nested['nome'] = $item->nome;
-            $nested['tipo'] = $item->tipo === 'meta' ? '<span class="badge badge-primary">Meta</span>' : '<span class="badge badge-success">Evolution</span>';
+            $nested['tipo'] = $item->tipo;
             $nested['namespace'] = $item->namespace;
             $nested['template_name'] = $item->template_name;
             $nested['componentes'] = $item->componentes ? json_decode($item->componentes, true) : [];

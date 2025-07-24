@@ -63,7 +63,14 @@
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'nome', name: 'nome' },
-                    { data: 'tipo', name: 'tipo' },
+                    {
+                        data: 'tipo',
+                        name: 'tipo',
+                        render: function (data) {
+                            const badge = data === 'meta' ? 'primary' : 'success';
+                            return `<span class="badge badge-light-${badge}">${data.charAt(0).toUpperCase() + data.slice(1)}</span>`;
+                        }
+                    },
                     { data: 'conta_whatsapp_nome', name: 'conta_whatsapp_nome' },
                     {
                         data: 'acoes',

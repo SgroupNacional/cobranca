@@ -71,7 +71,7 @@ class ContaWhatsappController extends Controller
 
             $nested['id'] = $item->id;
             $nested['nome'] = $item->nome;
-            $nested['tipo_api'] = strtoupper($item->tipo_api);
+            $nested['tipo_api'] = $item->tipo_api;
             $nested['numero'] = $item->numero ?? '-';
             $nested['business_account_id'] = $item->business_account_id ?? '-';
             $nested['phone_number_id'] = $item->phone_number_id ?? '-';
