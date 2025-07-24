@@ -13,7 +13,9 @@ class RolesAndPermissionsSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void{
-        Permission::create(['name' => 'dashboard-cobrança']);
+        
+        Permission::firstOrCreate(['name' => 'dashboard-cobrança', 'guard_name' => 'web']);
+        //Permission::create(['name' => 'dashboard-cobrança']);
         Permission::create(['name' => 'criar-usuario']);
         Permission::create(['name' => 'editar-usuario']);
 

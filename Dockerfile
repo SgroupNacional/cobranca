@@ -1,39 +1,42 @@
 # Dockerfile
 
-# 1. Partimos da imagem oficial PHP-FPM
 FROM php:8.2-fpm
 
-# 2. Aumenta o memory_limit para 1 GiB
 RUN echo "memory_limit=1024M" > /usr/local/etc/php/conf.d/memory-limit.ini
+# Instala dependências básicas e utilitários
+RUN apt-get update && apt-get install -y \
+    curl zip unzip git ca-certificates build-essential libzip-dev libpng-dev libonig-dev gnupg2 bash
 
-# 3. Instala extensões necessárias para Laravel / MySQL
-RUN apt-get update \
- && apt-get install -y \
-    libzip-dev zip unzip libpng-dev libonig-dev git \
- && docker-php-ext-install pdo_mysql mbstring zip exif pcntl bcmath gd
+# Instala extensões do PHP
+RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl bcmath gd
 
-# 4. Instala o Composer (copy from official composer image)
+# Instala o Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# 5. Define diretório de trabalho
+# Instala o NVM, Node.js 20.x e npm compatível
+ENV NVM_DIR=/root/.nvm
+ENV NODE_VERSION=20.17.0
+
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
+    . "$NVM_DIR/nvm.sh" && \
+    nvm install $NODE_VERSION && \
+    nvm use $NODE_VERSION && \
+    nvm alias default $NODE_VERSION && \
+    npm install -g npm@latest
+
+# Adiciona nvm ao PATH do bash
+ENV PATH="$NVM_DIR/versions/node/v$NODE_VERSION/bin/:$PATH"
+
+# Define diretório de trabalho
 WORKDIR /var/www/html
 
-# 6. Copia arquivos do host para o container
+# Copia projeto
 COPY . .
 
-# Adiciona esta linha para que o Git nunca reclame de “dubious ownership” ao rodar composer
-# Observe que isso será feito em build time, e garantirá que todos os contêineres derivados já
-# tenham esse “safe.directory” configurado.
+# Configura permissões
 RUN git config --global --add safe.directory /var/www/html
-
-# 7. Instala dependências PHP
 RUN composer install --no-interaction --optimize-autoloader --no-dev
-
-# 8. Dá permissão de escrita para storage e cache
 RUN chown -R www-data:www-data storage bootstrap/cache
 
-# 9. Expõe a porta (caso queira usar artisan serve)
 EXPOSE 8000
-
-# 10. Comando default (pode ser sobrescrito no compose)
 CMD ["php-fpm"]

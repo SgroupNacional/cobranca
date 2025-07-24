@@ -201,6 +201,12 @@
                                                 <span class="menu-title">Todas</span>
                                             </a>
                                         </div>
+                                         <li class="menu-item">
+                                            <a class="menu-link" href="{{ route('regua-cobranca.index') }}">
+                                                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                                                <span class="menu-title">Régua de Cobrança</span>
+                                            </a>
+                                        </li>
                                     </div>
                                 </div>
                                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">

@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesAndPermissionsSeeder::class);
         $this->call(\Database\Seeders\SuperAdminSeeder::class);
         $this->call(CanalSeeder::class);
+        $this->call(ReguaSeeder::class);
 
         User::factory()->create([
             'name' => 'Test User',

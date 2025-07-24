@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CanalController;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\ReguaCobrancaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,6 +31,10 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/canais/update', [CanalController::class, 'update'])->name('canais.update');
     Route::get('/cliente', [ClienteController::class, 'index'])->name('cliente.index');
+
+    Route::get('/regua-cobranca', [ReguaCobrancaController::class, 'index'])->name('regua-cobranca.index');
+    Route::resource('regua-cobranca', \App\Http\Controllers\ReguaCobrancaController::class);
+
 });
 
 Route::get('/site', [SiteController::class, 'index'])->name('site.home');
