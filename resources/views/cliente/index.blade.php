@@ -23,58 +23,13 @@
                     <table class="table align-middle table-row-dashed fs-6 gy-5" id="tabelaClientes">
                         <thead>
                         <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-                            <th class="min-w-125px">Cliente</th>
+                            <th class="min-w-150px">Cliente</th>
                             <th class="min-w-125px">Telefone</th>
                             <th class="min-w-125px">E-mail</th>
                             <th class="min-w-125px">Grupo</th>
-                            <th class="text-end min-w-100px">Ações</th>
                         </tr>
                         </thead>
                         <tbody class="text-gray-600 fw-semibold">
-                        <tr>
-                            <td class="d-flex align-items-center">
-                                <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                                    <a href="apps/user-management/users/view.html">
-                                        <div class="symbol-label fs-3 bg-light-danger text-danger">AJ</div>
-                                    </a>
-                                </div>
-                                <div class="d-flex flex-column">
-                                    <a href="apps/user-management/users/view.html" class="text-gray-800 text-hover-primary mb-1">André Jálisson Gonzaga de Sousa</a>
-                                    <span>044.670.953-06</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex flex-column">
-                                    (85)9 85965372
-                                </div>
-                                <div class="d-flex flex-column">
-                                    -
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex flex-column">
-                                    andrejalisson@gmail.com
-                                </div>
-                                <div class="d-flex flex-column">
-                                    andrejalisson@icloud.com
-                                </div>
-                            </td>
-                            <td>
-                                <div class="badge badge-light-success fw-bold">Adimplente Premium</div>
-                            </td>
-                            <td class="text-end">
-                                <a href="#" class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Ações
-                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-                                    <div class="menu-item px-3">
-                                        <a href="apps/user-management/users/view.html" class="menu-link px-3">Edit</a>
-                                    </div>
-                                    <div class="menu-item px-3">
-                                        <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -94,23 +49,21 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: '{{ url("/associados/listar") }}',
+                    url: '{{ route("cliente.listar") }}',
                     type: 'POST',
                     data: {
                         _token: '{{ csrf_token() }}'
                     }
                 },
                 columns: [
-                    { data: 'codigo', name: 'codigo' },
-                    { data: 'nome', name: 'nome' },
-                    { data: 'sistemas', name: 'sistemas'},
-                    { data: 'regional', name: 'regional' },
-                    { data: 'situacao', name: 'situacao'},
-                    { data: 'acoes', name: 'acoes'},
+                    { data: 'cliente', name: 'cliente' },
+                    { data: 'telefone', name: 'telefone' },
+                    { data: 'email', name: 'email'},
+                    { data: 'grupo', name: 'grupo' },
                 ],
 
                 language: {
-                    url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json'
+                    url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json'
                 }
             });
 

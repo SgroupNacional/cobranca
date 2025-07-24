@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/canais/update', [CanalController::class, 'update'])->name('canais.update');
     Route::get('/cliente', [ClienteController::class, 'index'])->name('cliente.index');
+    Route::post('/cliente/listar', [ClienteController::class, 'listar'])->name('cliente.listar');
 
     Route::resource('templates', TemplateController::class);
     Route::post('/templates/data', [TemplateController::class, 'data'])->name('templates.data');
