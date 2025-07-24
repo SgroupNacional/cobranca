@@ -6,15 +6,14 @@ use App\Models\Template;
 use App\Models\ContaWhatsapp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class TemplateController extends Controller
 {
     public function index()
     {
-        $templates = Template::with('contaWhatsapp')->get();
-        $contas = ContaWhatsapp::all();
-        return view('templates.index', compact('templates', 'contas'));
+        return view('templates.index');
     }
 
     public function listarTemplatesMeta($contaId)
@@ -35,41 +34,80 @@ class TemplateController extends Controller
         }
     }
 
-    public function data()
+    public function listar(Request $request)
     {
-        return DataTables::of(
-            Template::with('contaWhatsapp')->select([
-                'templates.id',
-                'templates.nome',
-                'templates.tipo',
-                'templates.template_name',
-                'templates.mensagem_livre',
-                'templates.componentes',
-                'templates.conta_whatsapp_id',
-            ])
-        )
-            ->addColumn('conta', function ($tpl) {
-                return $tpl->contaWhatsapp->nome ?? '-';
-            })
-            ->addColumn('acoes', function ($tpl) {
-                return '
-                <div class="text-end">
-                    <button type="button"
-                            class="btn btn-sm btn-warning btn-editar me-1"
-                            data-bs-toggle="modal"
-                            data-bs-target="#kt_modal_editar"
-                            data-id="' . $tpl->id . '"
-                            data-nome="' . e($tpl->nome) . '"
-                            data-tipo="' . $tpl->tipo . '"
-                            data-conta="' . $tpl->conta_whatsapp_id . '"
-                            data-template_name="' . e($tpl->template_name) . '"
-                            data-componentes=\'' . e(json_encode($tpl->componentes)) . '\'
-                            data-mensagem_livre="' . e($tpl->mensagem_livre) . '">Editar</button>
-                    <button type="button" class="btn btn-sm btn-danger btn-excluir" data-id="' . $tpl->id . '">Excluir</button>
-                </div>';
-            })
-            ->rawColumns(['acoes'])
-            ->make(true);
+        $columns = [
+            0 => 't.id',
+            1 => 't.nome',
+            2 => 't.tipo',
+            3 => 'c.nome',
+            4 => 't.namespace',
+            5 => 't.template_name',
+            6 => 't.componentes',
+            7 => 't.mensagem_livre',
+        ];
+
+        $query = DB::table('templates as t')
+            ->join('contas_whatsapp as c', 't.conta_whatsapp_id', '=', 'c.id')
+            ->select([
+                't.id',
+                't.nome',
+                't.tipo',
+                'c.nome as conta_whatsapp_nome',
+                't.namespace',
+                't.template_name',
+                't.componentes',
+                't.mensagem_livre',
+            ]);
+
+        // total
+        $totalData = $query->count();
+        $totalFiltered = $totalData;
+        $limit = $request->input('length');
+        $start = $request->input('start');
+        $order = $columns[$request->input('order.0.column')];
+        $dir = $request->input('order.0.dir');
+
+        // busca (se houver)
+        if (!empty($request->input('search.value'))) {
+            $search = $request->input('search.value');
+            $query->where(function ($q) use ($search) {
+                $q->where('t.nome', 'LIKE', "%{$search}%")
+                    ->orWhere('t.template_name', 'LIKE', "%{$search}%");
+            });
+            $totalFiltered = $query->count();
+        }
+
+        $templates = $query->orderBy($order, $dir)->offset($start)->limit($limit)->get();
+
+        $data = [];
+
+        foreach ($templates as $item) {
+            $nested = [];
+            $nested['id'] = $item->id;
+            $nested['conta_whatsapp_nome'] = $item->conta_whatsapp_nome;
+            $nested['nome'] = $item->nome;
+            $nested['tipo'] = $item->tipo === 'meta' ? '<span class="badge badge-primary">Meta</span>' : '<span class="badge badge-success">Evolution</span>';
+            $nested['namespace'] = $item->namespace;
+            $nested['template_name'] = $item->template_name;
+            $nested['componentes'] = $item->componentes ? json_decode($item->componentes, true) : [];
+            $nested['mensagem_livre'] = $item->mensagem_livre;
+            $nested['acoes'] = "
+                <div class='text-end'>
+                    <a href='/templates/{$item->id}/edit' class='btn btn-sm btn-warning me-1'>Editar</a>
+                    <button class='btn btn-sm btn-danger btn-excluir' data-id='{$item->id}'>Excluir</button>
+                </div>
+            ";
+
+            $data[] = $nested;
+        }
+
+        return response()->json([
+            "draw" => intval($request->input('draw')),
+            "recordsTotal" => $totalData,
+            "recordsFiltered" => $totalFiltered,
+            "data" => $data,
+        ]);
     }
 
     public function create()
@@ -93,6 +131,8 @@ class TemplateController extends Controller
         $template->conta_whatsapp_id = $conta->id;
         $template->tipo = $tipo;
 
+        Log::info($request->all());
+
         if ($tipo === 'meta') {
             $request->validate([
                 'template_meta' => 'required|string',
@@ -110,13 +150,11 @@ class TemplateController extends Controller
             // se houver variáveis (nome_exibicao, campo_origem), salvar
             if ($request->has('variaveis')) {
                 foreach ($request->variaveis as $index => $var) {
-                    if (!empty($var['nome_exibicao'])) {
-                        $template->variaveis()->create([
-                            'posicao' => $index + 1,
-                            'nome_exibicao' => $var['nome_exibicao'],
-                            'campo_origem' => $var['campo_origem'] ?? null,
-                        ]);
-                    }
+                    $template->variaveis()->create([
+                        'posicao' => $index,
+                        'nome_exibicao' => $var['nome_exibicao'] ?? 'Variável ' . ($index + 1),
+                        'campo_origem' => $var['campo_origem'] ?? null,
+                    ]);
                 }
             }
         } elseif ($tipo === 'evolution') {
@@ -140,6 +178,7 @@ class TemplateController extends Controller
     public function edit(Template $template)
     {
         $contas = ContaWhatsapp::all();
+        $template->load('variaveis');
         return view('templates.edit', compact('template', 'contas'));
     }
 
@@ -151,15 +190,46 @@ class TemplateController extends Controller
             'conta_whatsapp_id' => 'required|exists:contas_whatsapp,id',
         ]);
 
-        $template->update($request->only([
-            'nome',
-            'tipo',
-            'conta_whatsapp_id',
-            'namespace',
-            'template_name',
-            'componentes',
-            'mensagem_livre',
-        ]));
+        Log::info("UPDATE");
+        Log::info($request->all());
+
+        $conta = ContaWhatsapp::findOrFail($request->conta_whatsapp_id);
+        $tipo = $conta->tipo_api;
+
+        $template->nome = $request->nome;
+        $template->conta_whatsapp_id = $conta->id;
+        $template->tipo = $tipo;
+
+        if ($tipo === 'meta') {
+            $request->validate([
+                'template_meta' => 'required|string',
+            ]);
+
+            $template->template_name = $request->template_meta;
+            $template->mensagem_livre = null;
+        } elseif ($tipo === 'evolution') {
+            $request->validate([
+                'mensagem_livre' => 'required|string',
+            ]);
+
+            $template->mensagem_livre = $request->mensagem_livre;
+            $template->template_name = null;
+        }
+
+        $template->save();
+
+        if ($tipo === 'meta') {
+            $template->variaveis()->delete();
+            if ($request->has('variaveis')) {
+                foreach ($request->variaveis as $index => $var) {
+                    $template->variaveis()->create([
+                        'posicao' => $index,
+                        'nome_exibicao' => $var['nome_exibicao'] ?? 'Variável ' . ($index + 1),
+                        'campo_origem' => $var['campo_origem'] ?? null,
+                    ]);
+                }
+            }
+        }
 
         return redirect()->route('templates.index')->with('success', 'Template atualizado com sucesso!');
     }

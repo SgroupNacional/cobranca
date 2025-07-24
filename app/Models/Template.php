@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\TemplateVariavel;
 
 class Template extends Model
 {
@@ -39,5 +40,13 @@ class Template extends Model
     public function contaWhatsapp()
     {
         return $this->belongsTo(ContaWhatsapp::class, 'conta_whatsapp_id');
+    }
+
+    /**
+     * Get the variables mapped to this template.
+     */
+    public function variaveis()
+    {
+        return $this->hasMany(TemplateVariavel::class);
     }
 }

@@ -11,6 +11,7 @@
     @yield('css')
     <link href="/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/css/iziToast.min.css">
     <script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
 </head>
 
@@ -405,11 +406,51 @@
     </div>
     <script src="/assets/plugins/global/plugins.bundle.js"></script>
     <script src="/assets/js/scripts.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/js/iziToast.min.js"></script>
     @yield('js')
     <script src="/assets/plugins/custom/datatables/datatables.bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @yield('script')
+    @if(session('success'))
+        <script>
+            iziToast.success({
+                title: 'Sucesso',
+                message: '{{ session('success') }}',
+                position: 'topRight'
+            });
+        </script>
+    @endif
+
+    @if(session('error'))
+        <script>
+            iziToast.error({
+                title: 'Erro',
+                message: '{{ session('error') }}',
+                position: 'topRight'
+            });
+        </script>
+    @endif
+
+    @if(session('warning'))
+        <script>
+            iziToast.warning({
+                title: 'Atenção',
+                message: '{{ session('warning') }}',
+                position: 'topRight'
+            });
+        </script>
+    @endif
+
+    @if(session('info'))
+        <script>
+            iziToast.info({
+                title: 'Informação',
+                message: '{{ session('info') }}',
+                position: 'topRight'
+            });
+        </script>
+    @endif
     @yield('modais')
 </body>
 

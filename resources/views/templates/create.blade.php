@@ -129,152 +129,159 @@
 
 @section('script')
     @verbatim
-    <script>
-            const contaSelect       = document.getElementById('conta_whatsapp_id');
-            const templateMeta      = document.getElementById('template_meta');
-            const metaFields        = document.getElementById('meta_fields');
-            const evolutionFields   = document.getElementById('evolution_fields');
-            const previewContainer  = document.getElementById('meta_preview_container');
-            const previewHeader     = document.getElementById('preview_header');
-            const previewText       = document.getElementById('preview_text');
-        const variaveisContainer = document.getElementById('variaveis_container');
-            const headerField       = document.getElementById('header_field');
-            const availableFields   = ['associados.nome', 'boletos.valor', 'boletos.link_boleto'];
+        <script>
+                const contaSelect       = document.getElementById('conta_whatsapp_id');
+                const templateMeta      = document.getElementById('template_meta');
+                const metaFields        = document.getElementById('meta_fields');
+                const evolutionFields   = document.getElementById('evolution_fields');
+                const previewContainer  = document.getElementById('meta_preview_container');
+                const previewHeader     = document.getElementById('preview_header');
+                const previewText       = document.getElementById('preview_text');
+                const variaveisContainer = document.getElementById('variaveis_container');
+                const headerField       = document.getElementById('header_field');
+                const availableFields   = ['associados.nome', 'boletos.valor', 'boletos.link_boleto'];
 
-            // Init draggable items
-        function initDraggable() {
-            const container = document.getElementById('available_fields');
-            container.innerHTML = '';
-            availableFields.forEach(f => {
-                const div = document.createElement('div');
-                div.className = 'draggable-item badge bg-primary m-1 text-white';
-                div.draggable = true;
-                div.textContent = f;
-                div.addEventListener('dragstart', e => {
-                    e.dataTransfer.setData('text/plain', f);
+                // Init draggable items
+            function initDraggable() {
+                const container = document.getElementById('available_fields');
+                container.innerHTML = '';
+                availableFields.forEach(f => {
+                    const div = document.createElement('div');
+                    div.className = 'draggable-item badge bg-primary m-1 text-white';
+                    div.draggable = true;
+                    div.textContent = f;
+                    div.addEventListener('dragstart', e => {
+                        e.dataTransfer.setData('text/plain', f);
+                    });
+                    container.appendChild(div);
                 });
-                container.appendChild(div);
-            });
-        }
-
-        function extrairVariaveis(texto) {
-            const regex = /\{\{(\d+)\}\}/g;
-            const indices = new Set();
-            let match;
-                while ( (match = regex.exec(texto)) !== null ) {
-                indices.add(parseInt(match[1], 10));
             }
-                return Array.from(indices).sort((a,b)=>a-b);
-        }
 
-        function formatWhatsApp(text) {
-            let html = text
-                .replace(/```([\s\S]*?)```/g, '<code style="background:#fff;padding:2px 4px;border-radius:4px;">$1</code>')
-                .replace(/\*(.*?)\*/g, '<strong>$1</strong>')
-                .replace(/_(.*?)_/g, '<em>$1</em>')
-                .replace(/~(.*?)~/g, '<del>$1</del>')
-                .replace(/__(.*?)__/g, '<u>$1</u>');
-                return html.replace(/\n/g,'<br>');
-        }
+            function extrairVariaveis(texto) {
+                const regex = /\{\{(\d+)\}\}/g;
+                const indices = new Set();
+                let match;
+                    while ( (match = regex.exec(texto)) !== null ) {
+                    indices.add(parseInt(match[1], 10));
+                }
+                    return Array.from(indices).sort((a,b)=>a-b);
+            }
 
-        function gerarCamposVariaveis(indices) {
-            variaveisContainer.innerHTML = '';
-            indices.forEach(i => {
-                const row = document.createElement('div');
-                row.classList.add('mb-4');
+            function formatWhatsApp(text) {
+                let html = text
+                    .replace(/```([\s\S]*?)```/g, '<code style="background:#fff;padding:2px 4px;border-radius:4px;">$1</code>')
+                    .replace(/\*(.*?)\*/g, '<strong>$1</strong>')
+                    .replace(/_(.*?)_/g, '<em>$1</em>')
+                    .replace(/~(.*?)~/g, '<del>$1</del>')
+                    .replace(/__(.*?)__/g, '<u>$1</u>');
+                    return html.replace(/\n/g,'<br>');
+            }
 
-                // LABEL
-                const label = document.createElement('label');
-                label.innerHTML = `Variável @{{ ${i} }}`;
+            function gerarCamposVariaveis(indices) {
+                variaveisContainer.innerHTML = '';
+                indices.forEach(i => {
+                    const row = document.createElement('div');
+                    row.classList.add('mb-4');
 
-                // DIV contenteditable para tags
-                const tagInput = document.createElement('div');
-                tagInput.className = 'form-control mb-2 tag-input';
-                tagInput.contentEditable = true;
-                tagInput.dataset.index = i;
-                tagInput.setAttribute('placeholder', 'Arraste um campo aqui');
+                    // LABEL
+                    const label = document.createElement('label');
+                    label.innerHTML = `Variável @{{ ${i} }}`;
 
-                // INPUT hidden para submissão
-                const hidden = document.createElement('input');
-                hidden.type = 'hidden';
-                hidden.name = `variaveis[${i}][campo_origem]`;
-                hidden.id   = `hidden-variavel-${i}`;
+                    // DIV contenteditable para tags
+                    const tagInput = document.createElement('div');
+                    tagInput.className = 'form-control mb-2 tag-input';
+                    tagInput.contentEditable = true;
+                    tagInput.dataset.index = i;
+                    tagInput.setAttribute('placeholder', 'Arraste um campo aqui');
 
-                // listeners de D&D
-                tagInput.addEventListener('dragover', e => e.preventDefault());
-                tagInput.addEventListener('drop', e => {
-                    e.preventDefault();
-                    const field = e.dataTransfer.getData('text/plain');
+                    // INPUT hidden para submissão
+                    const hidden = document.createElement('input');
+                    hidden.type = 'hidden';
+                    hidden.name = `variaveis[${i}][campo_origem]`;
+                    hidden.id   = `hidden-variavel-${i}`;
 
-                    // limpa conteúdo anterior
-                    tagInput.innerHTML = '';
+                    // listeners de D&D
+                    tagInput.addEventListener('dragover', e => e.preventDefault());
+                    tagInput.addEventListener('drop', e => {
+                        e.preventDefault();
+                        const field = e.dataTransfer.getData('text/plain');
 
-                    // cria badge
-                    const badge = document.createElement('span');
-                    badge.className = 'badge bg-primary text-white';
-                    badge.textContent = field;
-                    tagInput.appendChild(badge);
+                        // limpa conteúdo anterior
+                        tagInput.innerHTML = '';
 
-                    // atualiza hidden
-                    hidden.value = field;
+                        // cria badge
+                        const badge = document.createElement('span');
+                        badge.className = 'badge bg-primary text-white';
+                        badge.textContent = field;
+                        tagInput.appendChild(badge);
+
+                        // atualiza hidden
+                        hidden.value = field;
+                    });
+
+                    row.appendChild(label);
+                    row.appendChild(tagInput);
+                    row.appendChild(hidden);
+                    variaveisContainer.appendChild(row);
                 });
-
-                row.appendChild(label);
-                row.appendChild(tagInput);
-                row.appendChild(hidden);
-                variaveisContainer.appendChild(row);
-            });
-        }
+            }
 
             contaSelect.addEventListener('change', function(){
-            const tipo = this.selectedOptions[0].dataset.api;
-            metaFields.classList.add('d-none');
-            evolutionFields.classList.add('d-none');
-            previewContainer.classList.add('d-none');
-            headerField.classList.add('d-none');
+                const tipo = this.selectedOptions[0].dataset.api;
+                metaFields.classList.add('d-none');
+                evolutionFields.classList.add('d-none');
+                previewContainer.classList.add('d-none');
+                headerField.classList.add('d-none');
+
+                // sempre remove required e desabilita
+                templateMeta.required = false;
+                templateMeta.disabled = true;
 
                 if(tipo === 'meta'){
-                metaFields.classList.remove('d-none');
-                initDraggable();
-                templateMeta.innerHTML = '<option>Carregando...</option>';
-                fetch(`/templates/meta/listar-templates/${this.value}`)
-                        .then(r=>r.json())
-                        .then(data=>{
-                        templateMeta.innerHTML = '<option value="">Selecione...</option>';
-                            data.forEach(item=>{
-                            const opt = document.createElement('option');
-                            opt.value = item.name;
-                                opt.text = item.name;
-                            opt.dataset.components = JSON.stringify(item.components);
-                            templateMeta.appendChild(opt);
-                        });
-                    });
-            }
+                    metaFields.classList.remove('d-none');
+                    templateMeta.disabled = false;
+                    templateMeta.required = true;
+
+                    initDraggable();
+                    templateMeta.innerHTML = '<option>Carregando...</option>';   
+                    fetch(`/templates/meta/listar-templates/${this.value}`)
+                            .then(r=>r.json())
+                            .then(data=>{
+                                templateMeta.innerHTML = '<option value="">Selecione...</option>';
+                                    data.forEach(item=>{
+                                    const opt = document.createElement('option');
+                                    opt.value = item.name;
+                                    opt.text = item.name;
+                                    opt.dataset.components = JSON.stringify(item.components);
+                                    templateMeta.appendChild(opt);
+                                });
+                            });
+                }
                 else if(tipo === 'evolution') evolutionFields.classList.remove('d-none');
-        });
+            });
 
             templateMeta.addEventListener('change', function(){
-            const sel = this.selectedOptions[0];
+                const sel = this.selectedOptions[0];
                 if(!sel) return;
                 const components = JSON.parse(sel.dataset.components||'[]');
                 const body   = components.find(c=>c.type==='BODY')?.text||'';
                 const header = components.find(c=>c.type==='HEADER');
 
                 previewText.innerHTML = formatWhatsApp(body);
-            previewHeader.innerHTML = '';
+                previewHeader.innerHTML = '';
                 if(header?.format==='DOCUMENT') previewHeader.innerHTML='📎 Documento anexado';
                 else if(header?.format==='IMAGE') previewHeader.innerHTML='🖼️ Imagem anexada';
-            previewContainer.classList.remove('d-none');
+                previewContainer.classList.remove('d-none');
 
-            const vars = extrairVariaveis(body);
-            if (vars.length) gerarCamposVariaveis(vars);
-            else variaveisContainer.innerHTML = '<div class="text-muted">Nenhuma variável encontrada.</div>';
+                const vars = extrairVariaveis(body);
+                if (vars.length) gerarCamposVariaveis(vars);
+                else variaveisContainer.innerHTML = '<div class="text-muted">Nenhuma variável encontrada.</div>';
 
                 if(header?.format==='DOCUMENT') headerField.classList.remove('d-none');
-        });
+            });
 
-            // inicializa se já tiver seleção
+                // inicializa se já tiver seleção
             if(contaSelect.value) contaSelect.dispatchEvent(new Event('change'));
-    </script>
+        </script>
     @endverbatim
 @endsection
