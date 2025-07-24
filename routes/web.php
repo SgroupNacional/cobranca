@@ -7,6 +7,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CanalController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\ReguaCobrancaController;
+use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\ContaWhatsappController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,11 +37,27 @@ Route::middleware('auth')->group(function () {
     Route::get('/regua-cobranca', [ReguaCobrancaController::class, 'index'])->name('regua-cobranca.index');
     Route::resource('regua-cobranca', \App\Http\Controllers\ReguaCobrancaController::class);
 
+    Route::post('/cliente/listar', [ClienteController::class, 'listar'])->name('cliente.listar');
+
+    Route::resource('templates', TemplateController::class);
+    Route::post('/templates/listar', [TemplateController::class, 'listar'])->name('templates.listar');
+    Route::get('templates/meta/listar-templates/{contaId}', [TemplateController::class, 'listarTemplatesMeta']);
+
+    Route::get('/whatsapp', [ContaWhatsappController::class, 'index'])->name('whatsapp.index');
+    Route::get('/whatsapp/criar', [ContaWhatsappController::class, 'create'])->name('whatsapp.create');
+    Route::post('whatsapp/listar', [ContaWhatsappController::class, 'listar'])->name('whatsapp.listar');
+    Route::post('whatsapp/store', [ContaWhatsappController::class, 'store'])->name('whatsapp.store');
+    Route::get('whatsapp/{whatsapp}/editar', [ContaWhatsappController::class, 'edit'])
+        ->name('whatsapp.edit');
+    Route::put('whatsapp/{whatsapp}', [ContaWhatsappController::class, 'update'])
+        ->name('whatsapp.update');
+    Route::delete('whatsapp/{whatsapp}', [ContaWhatsappController::class, 'destroy'])
+        ->name('whatsapp.destroy');
 });
 
 Route::get('/site', [SiteController::class, 'index'])->name('site.home');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 
 
