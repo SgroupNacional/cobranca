@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="67.97847mm"
+   width="67.885727mm"
    height="24.061832mm"
-   viewBox="0 0 67.97847 24.061833"
+   viewBox="0 0 67.885727 24.061833"
    version="1.1"
    id="svg1"
    inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
@@ -23,15 +23,22 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="1.9578168"
-     inkscape:cx="154.50884"
-     inkscape:cy="119.2655"
-     inkscape:window-width="2400"
-     inkscape:window-height="1261"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:zoom="2.7687711"
+     inkscape:cx="120.81172"
+     inkscape:cy="141.57906"
+     inkscape:window-width="1722"
+     inkscape:window-height="1250"
+     inkscape:window-x="2533"
+     inkscape:window-y="41"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"
+     showguides="true">
+    <sodipodi:guide
+       position="67.877902,17.701711"
+       orientation="1,0"
+       id="guide1"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
   <defs
      id="defs1">
     <clipPath
@@ -333,10 +340,10 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-26.458332,6.3500004)">
+     transform="translate(-26.45551,6.3500004)">
     <path
        id="path6"
-       d="m 0,0 h -156.68 c -9.87,0 -17.872,-8.002 -17.872,-17.872 l 0.13544,-50.26574 L 18.142878,-68.20677 17.872,-17.872 C 17.818885,-8.0021429 9.87,0 0,0"
+       d="m 0,0 h -156.68 c -9.87,0 -17.872,-8.002 -17.872,-17.872 L -174.56,-68.185625 17.855568,-68.20677 17.872,-17.872 C 17.875222,-8.0020005 9.87,0 0,0"
        style="fill:#2c2c35;fill-opacity:1;fill-rule:nonzero;stroke:none"
        transform="matrix(0.35277776,0,0,-0.35277776,88.036396,-6.3500004)"
        clip-path="url(#clipPath7)"

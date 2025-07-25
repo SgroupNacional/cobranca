@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">Pré-visualização da Mensagem</label>
+                                <label class="form-label mb-4">Pré-visualização da Mensagem</label>
                                 <div id="preview_card">
                                     <div id="app-header">
                                         <img src="{{ asset('svg/topo-app.svg') }}" alt="Topo do App" class="w-100" />
@@ -79,7 +79,7 @@
                                 rows="4">{{ old('mensagem_livre') }}</textarea>
                         </div>
 
-                        <div class="d-flex justify-content-end">
+                        <div class="d-flex justify-content-end pt-5">
                             <a href="{{ route('templates.index') }}" class="btn btn-light me-3">Cancelar</a>
                             <button type="submit" class="btn btn-primary">
                                 <i class="ki-outline ki-check fs-2"></i> Salvar
@@ -105,25 +105,20 @@
 
     .preview-text {
         width: 65%;
-        background: #c3ffc3ff;
+        background: #fff;
         position: absolute;
-        right: 20px;
+        left: 30px;
         margin-top: 10px;
-        margin-right: 10px;
+        margin-left: 10px;
         padding: 10px 10px 20px 10px;
         border-radius: 10px;
     }
 
     .preview-text::after {
-        content: '';
+        content: '11:50';
         position: absolute;
         bottom: 7px;
         right: 7px;
-        background-image: url('/svg/confirmacao-envio.svg');
-        width: 53px;
-        height: 11px;
-        background-size: contain;
-        background-repeat: no-repeat;
     }
 
     #app-content {

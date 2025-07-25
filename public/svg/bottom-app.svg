@@ -24,9 +24,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showguides="true"
-     inkscape:zoom="0.69219276"
-     inkscape:cx="-104.73961"
-     inkscape:cy="146.63545"
+     inkscape:zoom="45.254834"
+     inkscape:cx="7.1926018"
+     inkscape:cy="3.0383494"
      inkscape:window-width="1920"
      inkscape:window-height="991"
      inkscape:window-x="2391"
@@ -343,7 +343,7 @@
      transform="translate(-70.908336,-190.31183)">
     <path
        id="path6"
-       d="M -174.552,-298.01029 V -340.918 c 0,-9.872 8.002,-17.874 17.872,-17.874 H 0 c 9.87,0 17.872,8.002 17.872,17.874 v 42.95137"
+       d="M -174.552,-297.97714 V -340.918 c 0,-9.872 8.002,-17.874 17.872,-17.874 H 0 c 9.87,0 17.872,8.002 17.872,17.874 v 42.95137"
        style="fill:#2c2c35;fill-opacity:1;fill-rule:nonzero;stroke:none"
        transform="matrix(0.35277776,0,0,-0.35277776,132.4864,85.195833)"
        clip-path="url(#clipPath7)"
@@ -358,7 +358,7 @@
        id="path16"
        d="M 334.123,108.054 H 166.354 V 404.5 h 167.769 z"
        style="fill:#e7f7ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       transform="matrix(0.35277776,0,0,-0.03364967,16.655412,203.93597)"
+       transform="matrix(0.35277776,0,0,-0.03368802,16.655412,203.94011)"
        clip-path="url(#clipPath17)" />
     <g
        opacity="0.100006"

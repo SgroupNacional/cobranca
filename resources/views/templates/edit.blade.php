@@ -56,10 +56,18 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">Pré-visualização da Mensagem</label>
+                                <label class="form-label mb-4">Pré-visualização da Mensagem</label>
                                 <div id="preview_card">
-                                    <div id="preview_header" class="preview-header"></div>
-                                    <div id="preview_text" class="preview-text"></div>
+                                    <div id="app-header">
+                                        <img src="{{ asset('svg/topo-app.svg') }}" alt="Topo do App" class="w-100" />
+                                    </div>
+                                    <div id="app-content">
+                                        <div id="preview_header" class="preview-header"></div>
+                                        <div id="preview_text" class="preview-text"></div>
+                                    </div>
+                                    <div id="app-bottom">
+                                        <img src="{{ asset('svg/bottom-app.svg') }}" alt="Bottom do App" class="w-100" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +81,7 @@
                                 rows="4">{{ old('mensagem_livre', $template->mensagem_livre) }}</textarea>
                         </div>
 
-                        <div class="d-flex justify-content-end">
+                        <div class="d-flex justify-content-end pt-5">
                             <a href="{{ route('templates.index') }}" class="btn btn-light me-3">Cancelar</a>
                             <button type="submit" class="btn btn-primary">
                                 <i class="ki-outline ki-check fs-2"></i> Salvar
@@ -86,63 +94,64 @@
     </div>
 @endsection
 
-@push('styles')
-    <style>
-        /* Bolha WhatsApp */
-        #preview_card {
-            background: #dcf8c6;
-            border-radius: 8px;
-            padding: 12px 16px;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            position: relative;
-            margin-top: 8px;
-        }
+@section('css')
+<style>
+    /* Bolha WhatsApp */
+    #preview_card {
+        width: 400px;
+        border-radius: 8px;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        position: relative;
+    }
 
-        .preview-header {
-            font-size: 14px;
-            margin-bottom: 6px;
-            color: #555;
-        }
 
-        .preview-text {
-            font-size: 15px;
-            color: #303030;
-            line-height: 1.4;
-            word-wrap: break-word;
-        }
+    .preview-text {
+        width: 65%;
+        background: #fff;
+        position: absolute;
+        left: 30px;
+        margin-top: 10px;
+        margin-left: 10px;
+        padding: 10px 10px 20px 10px;
+        border-radius: 10px;
+    }
 
-        #preview_card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 16px;
-            border: 8px solid transparent;
-            border-top-color: #dcf8c6;
-            border-bottom: 0;
-            margin-bottom: -8px;
-        }
+    .preview-text::after {
+        content: '11:50';
+        position: absolute;
+        bottom: 7px;
+        right: 7px;
+    }
 
-        /* Drag & Drop */
-        .draggable-item {
-            cursor: grab;
-            padding: 6px 8px;
-            background: #f1f1f1;
-            border-radius: 4px;
-            margin-bottom: 4px;
-        }
+    #app-content {
+        background-image: url('/svg/content-app.svg');
+        background-repeat: repeat-y;
+        background-size: 100% auto;
+        background-position: center top;
+        height: 500px;
+    }
 
-        .tag-input {
-            min-height: 38px;
-            cursor: text;
-            padding: .375rem .75rem;
-        }
+    /* Drag & Drop */
+    .draggable-item {
+        cursor: grab;
+        padding: 6px 8px;
+        background: #f1f1f1;
+        border-radius: 4px;
+        margin-bottom: 4px;
+    }
 
-        .tag-input .badge {
-            margin-right: 4px;
-            cursor: default;
-        }
-    </style>
-@endpush
+    .tag-input {
+        min-height: 38px;
+        cursor: text;
+        padding: .375rem .75rem;
+    }
+
+    .tag-input .badge {
+        margin-right: 4px;
+        cursor: default;
+    }
+</style>
+@section('css')
 
 @section('script')
     <script>
